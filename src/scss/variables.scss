@@ -1,14 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
-@import '~vuetify/src/styles/styles.sass';
-
-$material-dark: (
-        'app-bar': #000000,
-        'bottom-navigation': #000000,
-        'background': #000000,
-        'cards': #000000,
-        'navigation-drawer': #000000,
-        'toolbar': #000000
-);
 
 $font-size-root: 16px;
 $body-font-family: 'Raleway', sans-serif !default;
@@ -19,3 +9,14 @@ $chip-label-border-radius: 0;
 $ripple-animation-transition-in: none;
 $ripple-animation-transition-out: none;
 $ripple-animation-visible-opacity: none;
+
+@import '~vuetify/src/styles/styles.sass';
+
+$material-dark: (
+        'app-bar': #321231,
+        'bottom-navigation': #000000,
+        'background': #000000,
+        'cards': #000000,
+        'navigation-drawer': #000000,
+        'toolbar': #000000
+);

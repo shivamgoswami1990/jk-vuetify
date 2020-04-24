@@ -23,6 +23,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-vue": "^6.2.2",
+    "eslint-plugin-vuetify": "^1.0.0-beta.6",
     "postcss-pxtorem": "^5.1.1",
     "sass": "^1.26.3",
     "sass-loader": "^8.0.0",
@@ -41,17 +42,6 @@
     ],
     "parserOptions": {
       "parser": "babel-eslint"
-    },
-    "rules": {
-      "indent": [
-        "error",
-        2
-      ],
-      "semi": [
-        "error",
-        "never"
-      ],
-      "no-undef": "off"
     }
   },
   "postcss": {
