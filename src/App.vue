@@ -19,12 +19,14 @@
           <h3>JK Aromatics And Perfumers</h3>
 
           <v-spacer></v-spacer>
-          <div class="hidden-md-and-down">
+          <div class="hidden-sm-and-down mr-2">
             <a v-for="(item, index) in navItems" :key="index" class="black--text font-weight-bold px-5"
                    v-if="item.isMainNavItem" :to="{ 'name' : item.linkTo}">
               {{item.title}}
             </a>
           </div>
+
+          <contact-btn text="Get in touch"/>
         </v-container>
       </v-app-bar>
 
@@ -35,7 +37,6 @@
       <!-- Router content -->
 
     </v-app>
-    <router-view/>
   </div>
 </template>
 
@@ -48,10 +49,11 @@
 
 <script>
   import NavDrawer from '@/components/NavDrawer.vue';
+  import ContactBtn from '@/components/ContactBtn.vue';
 
   export default {
     components: {
-      NavDrawer
+      NavDrawer, ContactBtn
     },
     data() {
       return {
