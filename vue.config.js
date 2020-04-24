@@ -1,11 +1,9 @@
 module.exports = {
-  transpileDependencies: [
+  "transpileDependencies": [
     "vuetify"
   ],
-
-  productionSourceMap: false,
-
-  devServer: {
-    compress: true
+  "productionSourceMap": false,
+  "devServer": {
+    "compress": true
   }
 }
