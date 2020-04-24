@@ -1,5 +1,5 @@
 <template>
-    <v-btn color="primary" rounded height="50" width="150" :text="!backgroundColor"
+    <v-btn color="primary" rounded height="50" width="150" :text="!backgroundColor" :outlined="outlined"
            class="font-weight-bold text-capitalize my-5">
         {{text}}
     </v-btn>
@@ -15,6 +15,10 @@
         backgroundColor: {
           type: Boolean,
           default: true
+        },
+        outlined: {
+          type: Boolean,
+          default: false
         }
       }
     }
