@@ -102,10 +102,10 @@
 
             <div class="foreground-layer">
                 <v-container class="section-container mt-5">
-                    <div class="foreground-layer">
+                    <div>
                         <v-row no-gutters class="first-row my-10">
                             <v-col class="left-col">
-                                <v-img :src="require('@/assets/section-1.png')" contain height="420"/>
+                                <v-img :src="require('@/assets/section-1.png')" contain height="420" max-width="450px"/>
                             </v-col>
                             <v-col class="right-col pl-10">
                                 <div class="mobile-max-width">
@@ -128,20 +128,20 @@
                             <v-col class="right-col pl-10">
                                 <div class="mobile-max-width">
                                     <div>
-                                        <a>Deliverability</a>
-                                        <h2 class="display-2 my-5">Right people, Right fragrances</h2>
+                                        <a>Reliability</a>
+                                        <h2 class="display-2 my-5">State of the art solutions</h2>
                                         <p>
-                                            JK Aromatics and Perfumers has been helping create unique brand identities since 1989.
-                                            Our refined aesthetics, extensive knowledge of perfumery and master craftsmanship
-                                            have won the trust of leading fragrance labels. The art of designing a signature
-                                            fragrance is like creating an aromatic symphony which not only calls for creative
-                                            perception but also requires most advanced technology tools.
+                                            Our firm is involved in delivering a vast series products
+                                            to valued customers. The offered items are made with the help of modern
+                                            techniques, optimum grade ingredients in compliance with the set
+                                            market quality using contemporary tools and technologies
+                                            in tandem with industry set guidelines of quality.
                                         </p>
                                     </div>
                                 </div>
                             </v-col>
                             <v-col class="left-col">
-                                <v-img :src="require('@/assets/section-1.png')" contain height="420"/>
+                                <v-img :src="require('@/assets/section-2.png')" contain height="420" max-width="450px"/>
                             </v-col>
                         </v-row>
                     </div>
@@ -294,12 +294,10 @@
                 position: relative;
                 z-index: 15;
                 .first-row, .second-row {
-                    .left-col {
+                    .left-col, .right-col {
+                        display: flex;
                         align-self: center;
-                    }
-
-                    .right-col {
-                        align-self: center;
+                        justify-content: center;
 
                         .mobile-max-width {
                             display: flex;
