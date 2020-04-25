@@ -40,10 +40,16 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
   #app {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    .mobile-max-width {
+      & > div {
+        max-width: 350px;
+      }
+    }
   }
 </style>
 

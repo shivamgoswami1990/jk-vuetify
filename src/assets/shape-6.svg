@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 553 378" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Path 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#F50E02" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <path d="M91.7117386,5255 C43.1631182,5346.71089 36.0937546,5417.24602 70.503648,5466.6054 C122.118488,5540.64447 237.762723,5502.07437 306.1152,5669.7 C351.683519,5781.45041 420.343325,5829.18089 512.09462,5812.89144 L512.09462,5255 L91.7117386,5255 Z" id="path-2"></path>
+    </defs>
+</svg>

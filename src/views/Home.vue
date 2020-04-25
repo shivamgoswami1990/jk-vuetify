@@ -31,7 +31,7 @@
         <v-container class="featured-products-section mt-5">
             <a>Products</a>
 
-            <div class="d-flex title-container justify-space-between">
+            <div class="d-flex mobile-max-width justify-space-between">
                 <div>
                     <h2 class="display-2 my-5">Our featured products</h2>
                     <p>
@@ -44,55 +44,110 @@
             </div>
 
             <v-row no-gutters class="my-5">
-                <v-col md="4" lg="4" cols="12" class="px-5">
-                    <v-card class="pa-5" raised height="270">
-                        <v-card-title class="d-flex flex-column align-content-start" style="position: relative">
-                            <v-icon style="position: relative; left: -20px" color="primary">mdi-history</v-icon>
-                            <b>Incense</b>
-                        </v-card-title>
-                        <v-card-text>
-                            Light & breezy floral/fruity blends, rich & heavy oriental notes or warm woody/earthy
-                            aromas, we bring you a full spectrum of natural fragrances
-                        </v-card-text>
-                        <v-card-subtitle>
-                            <a>Learn more</a>
-                        </v-card-subtitle>
-                    </v-card>
+                <v-col md="4" lg="4" cols="12" class="pr-10">
+                    <v-hover v-slot:default="{ hover }">
+                        <v-card class="pa-5" :raised="!hover" height="100%">
+                            <v-icon color="primary" class="pl-3">mdi-candle</v-icon>
+                            <v-card-title class="font-weight-bold">Incense fragrances</v-card-title>
+                            <v-card-text>
+                                Light & breezy floral/fruity blends, rich & heavy oriental notes or warm woody/earthy
+                                aromas, we bring you a full spectrum of natural fragrances.
+                            </v-card-text>
+                            <v-card-subtitle>
+                                <a>Learn more</a>
+                            </v-card-subtitle>
+                        </v-card>
+                    </v-hover>
                 </v-col>
 
-                <v-col md="4" lg="4" cols="12" class="px-5">
-                    <v-card class="pa-5" raised height="270">
-                        <v-card-title class="d-flex flex-column align-content-start" style="position: relative">
-                            <v-icon style="position: relative; left: -20px" color="primary">mdi-history</v-icon>
-                            <b>Incense</b>
-                        </v-card-title>
-                        <v-card-text>
-                            Light & breezy floral/fruity blends, rich & heavy oriental notes or warm woody/earthy
-                            aromas, we bring you a full spectrum of natural fragrances
-                        </v-card-text>
-                        <v-card-subtitle>
-                            <a>Learn more</a>
-                        </v-card-subtitle>
-                    </v-card>
+                <v-col md="4" lg="4" cols="12" class="pr-5">
+                    <v-hover v-slot:default="{ hover }">
+                        <v-card class="pa-5" :raised="!hover" height="100%">
+                            <v-icon color="primary" class="pl-3">mdi-washing-machine</v-icon>
+                            <v-card-title class="font-weight-bold">Detergent fragrances</v-card-title>
+                            <v-card-text>
+                                These products are specifically processed by using contemporary tools and
+                                technologies in tandem with industry set guidelines of quality.
+                            </v-card-text>
+                            <v-card-subtitle>
+                                <a>Learn more</a>
+                            </v-card-subtitle>
+                        </v-card>
+                    </v-hover>
                 </v-col>
 
-                <v-col md="4" lg="4" cols="12" class="px-5">
-                    <v-card class="pa-5" raised height="270">
-                        <v-card-title class="d-flex flex-column align-content-start" style="position: relative">
-                            <v-icon style="position: relative; left: -20px" color="primary">mdi-history</v-icon>
-                            <b>Incense</b>
-                        </v-card-title>
-                        <v-card-text>
-                            Light & breezy floral/fruity blends, rich & heavy oriental notes or warm woody/earthy
-                            aromas, we bring you a full spectrum of natural fragrances
-                        </v-card-text>
-                        <v-card-subtitle>
-                            <a>Learn more</a>
-                        </v-card-subtitle>
-                    </v-card>
+                <v-col md="4" lg="4" cols="12" class="pl-5">
+                    <v-hover v-slot:default="{ hover }">
+                        <v-card class="pa-5" :raised="!hover" height="100%">
+                            <v-icon color="primary" class="pl-3">mdi-spa</v-icon>
+                            <v-card-title class="font-weight-bold">Fine fragrances</v-card-title>
+                            <v-card-text>
+                                Extensive knowledge of perfumery and master craftsmanship have won the trust
+                                of leading fragrance labels and helped create unique brand identities.
+                            </v-card-text>
+                            <v-card-subtitle>
+                                <a>Learn more</a>
+                            </v-card-subtitle>
+                        </v-card>
+                    </v-hover>
                 </v-col>
             </v-row>
         </v-container>
+
+        <div class="expertise-section">
+            <div class="background-layer">
+                <img :src="require('@/assets/shape-4.svg')" class="shape-4"/>
+                <img :src="require('@/assets/shape-5.svg')" class="shape-5"/>
+            </div>
+
+            <div class="foreground-layer">
+                <v-container class="section-container mt-5">
+                    <div class="foreground-layer">
+                        <v-row no-gutters class="first-row my-10">
+                            <v-col class="left-col">
+                                <v-img :src="require('@/assets/section-1.png')" contain height="420"/>
+                            </v-col>
+                            <v-col class="right-col pl-10">
+                                <div class="mobile-max-width">
+                                    <div>
+                                        <a>Deliverability</a>
+                                        <h2 class="display-2 my-5">Right people, Right fragrances</h2>
+                                        <p>
+                                            JK Aromatics and Perfumers has been helping create unique brand identities since 1989.
+                                            Our refined aesthetics, extensive knowledge of perfumery and master craftsmanship
+                                            have won the trust of leading fragrance labels. The art of designing a signature
+                                            fragrance is like creating an aromatic symphony which not only calls for creative
+                                            perception but also requires most advanced technology tools.
+                                        </p>
+                                    </div>
+                                </div>
+                            </v-col>
+                        </v-row>
+
+                        <v-row no-gutters class="second-row my-10">
+                            <v-col class="right-col pl-10">
+                                <div class="mobile-max-width">
+                                    <div>
+                                        <a>Deliverability</a>
+                                        <h2 class="display-2 my-5">Right people, Right fragrances</h2>
+                                        <p>
+                                            JK Aromatics and Perfumers has been helping create unique brand identities since 1989.
+                                            Our refined aesthetics, extensive knowledge of perfumery and master craftsmanship
+                                            have won the trust of leading fragrance labels. The art of designing a signature
+                                            fragrance is like creating an aromatic symphony which not only calls for creative
+                                            perception but also requires most advanced technology tools.
+                                        </p>
+                                    </div>
+                                </div>
+                            </v-col>
+                            <v-col class="left-col">
+                                <v-img :src="require('@/assets/section-1.png')" contain height="420"/>
+                            </v-col>
+                        </v-row>
+                    </div>
+                </v-container>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -202,10 +257,56 @@
         .featured-products-section {
             position: relative;
             z-index: 15;
+        }
 
-            .title-container {
-                > div {
-                    max-width: 350px;
+        .expertise-section {
+            position: relative;
+            a {
+                background-color: rgba(245, 14, 2, 0.05);
+                padding: 5px 10px;
+                border-radius: 10px;
+            }
+
+            .background-layer {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+
+                .shape-4 {
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    height: 60%;
+                    width: 50%;
+                    transform: translateY(-50%);
+                }
+
+                .shape-5 {
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    height: 40%;
+                    transform: translateY(-50%);
+                }
+            }
+
+            .foreground-layer {
+                position: relative;
+                z-index: 15;
+                .first-row, .second-row {
+                    .left-col {
+                        align-self: center;
+                    }
+
+                    .right-col {
+                        align-self: center;
+
+                        .mobile-max-width {
+                            display: flex;
+                            justify-content: center;
+                            text-align: left;
+                        }
+                    }
                 }
             }
         }
