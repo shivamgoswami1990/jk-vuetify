@@ -13,7 +13,10 @@
                     <a class="my-5">Fragrance experts</a>
                     <h1 class="display-3 font-weight-bold my-5">Creating sensorial dreams since 1989</h1>
                     <p class="my-5">
-                        We are the finest firm manufacturing and supplying a spellbinding series of Fragrances and Oils
+                        We are the finest firm manufacturing and supplying a spellbinding series of Fragrances and Oils.
+                        Check our
+                        <a class="text-decoration-underline font-weight-regular">upcoming events</a>
+                        and <a class="text-decoration-underline font-weight-regular">industry association</a>
                     </p>
 
                     <contact-btn/>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Bg SHape</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="29.3741182%" x2="81.2513179%" y2="70.6258818%" id="linearGradient-1">
+            <stop stop-color="#F50E02" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home-Copy" transform="translate(0.000000, -1765.000000)">
+            <g id="Bg-SHape" transform="translate(-70.000000, 1765.000000)">
+                <path d="M41.7447967,105.198707 C149.978518,102.940159 227.117841,119.934951 273.162765,156.183082 C342.230152,210.55528 459.89803,224.996622 528.377609,218.530739 C596.857188,212.064856 625.36589,263.233864 613.86338,349.932191 C602.36087,436.630519 509.821445,504.231671 435.757695,485.42183 C361.693944,466.611989 256.352741,409.325493 197.86589,435.776832 C139.37904,462.228172 47.5299755,521.294246 13.1432342,492.491676 C-9.78126001,473.289963 -0.247405839,344.192307 41.7447967,105.198707 Z" id="Path" fill="url(#linearGradient-1)" opacity="0.100000001"></path>
+            </g>
+            <g id="2" transform="translate(405.000000, 2428.000000)">
+                <g id="Feature-2"></g>
+            </g>
+        </g>
+    </g>
+</svg>

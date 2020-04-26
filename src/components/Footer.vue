@@ -56,7 +56,7 @@
                             <h3 class="pb-6 body-1 font-weight-bold">Company</h3>
 
                             <v-layout justify-center>
-                                <ul id="sitemap-links">
+                                <ul id="sitemap-links" class="pt-0">
                                     <li v-for="(item, index) in $attrs.items" :key="index"
                                         @click="$router.push({ name: item.linkTo})" class="body-2">
                                         {{item.title}}
