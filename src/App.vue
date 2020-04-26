@@ -51,6 +51,10 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
+    @media screen and (max-width: 1024px) {
+      display: none;
+    }
+
     .mobile-max-width {
       & > div {
         max-width: 350px;
