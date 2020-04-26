@@ -4,6 +4,7 @@
 
       <nav-drawer :items="navItems" v-if="showDrawer" @showDrawer="transitionend" />
 
+      <!-- App bar -->
       <v-app-bar app color="transparent" tile height="70px" elevation="0" hide-on-scroll fixed>
         <v-container class="d-flex align-center">
           <v-app-bar-nav-icon @click="showDrawer = true" v-if="$vuetify.breakpoint.mdAndDown">
@@ -29,12 +30,17 @@
           <contact-btn text="Get in touch"/>
         </v-container>
       </v-app-bar>
+      <!-- App bar -->
 
       <!-- Router content -->
       <v-content>
         <router-view/>
       </v-content>
       <!-- Router content -->
+
+      <!-- Footer -->
+      <footer-with-bottom-nav :items="navItems"/>
+      <!-- Footer -->
 
     </v-app>
   </div>
@@ -56,10 +62,11 @@
 <script>
   import NavDrawer from '@/components/NavDrawer.vue';
   import ContactBtn from '@/components/ContactBtn.vue';
+  import FooterWithBottomNav from '@/components/Footer.vue';
 
   export default {
     components: {
-      NavDrawer, ContactBtn
+      NavDrawer, ContactBtn, FooterWithBottomNav
     },
     data() {
       return {
