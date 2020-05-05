@@ -5,7 +5,7 @@
       <nav-drawer :items="navItems" v-if="showDrawer" @showDrawer="transitionend" />
 
       <!-- App bar -->
-      <v-app-bar app color="transparent" tile height="70px" elevation="0" hide-on-scroll fixed>
+      <v-app-bar app color="transparent" tile height="70px" elevation="0" hide-on-scroll fixed class="app-bar">
         <v-container class="d-flex align-center">
           <v-app-bar-nav-icon @click="showDrawer = true" v-if="$vuetify.breakpoint.mdAndDown">
             <slot>
@@ -21,8 +21,8 @@
 
           <v-spacer></v-spacer>
           <div class="hidden-sm-and-down mr-2">
-            <a v-for="(item, index) in navItems" :key="index" class="black--text font-weight-bold px-5"
-                   v-if="item.isMainNavItem" :to="{ 'name' : item.linkTo}">
+            <a v-for="(item, index) in navItems" :key="index" class="black--text font-weight-bold mx-5 nav-link"
+               v-if="item.isMainNavItem" @click="$router.push({ name: item.linkTo, params: { id: item.linkParams }})">
               {{item.title}}
             </a>
           </div>
@@ -51,6 +51,18 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
+    .app-bar {
+      z-index: 400;
+    }
+
+    .nav-link {
+      cursor: pointer;
+
+      &:hover {
+        border-bottom: 4px solid #F50E02;
+      }
+    }
+
     @media screen and (max-width: 1024px) {
       display: none;
     }
@@ -77,7 +89,7 @@
         showDrawer: false,
         navItems: [
           { title: "Home", isMainNavItem: true, linkTo: 'home'},
-          { title: "Our Products", isMainNavItem: true, linkTo: 'products'},
+          { title: "Our Products", isMainNavItem: true, linkTo: 'products', linkParams: 1},
           { title: "About Us", isMainNavItem: true, linkTo: 'about'},
           { title: "Contact Us", isMainNavItem: true, linkTo: 'contactus'},
         ]

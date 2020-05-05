@@ -47,49 +47,34 @@
             </div>
 
             <v-row no-gutters class="my-5">
-                <v-col md="4" lg="4" cols="12" class="pr-10">
+                <v-col md="4" lg="4" cols="12" class="pr-10" v-for="(product, index) in products"
+                       :key="index" v-if="product.isFeatured">
                     <v-hover v-slot:default="{ hover }">
-                        <v-card class="pa-5" :raised="!hover" height="100%">
-                            <v-icon color="primary" class="pl-3">mdi-candle</v-icon>
-                            <v-card-title class="font-weight-bold">Incense fragrances</v-card-title>
-                            <v-card-text>
-                                Light & breezy floral/fruity blends, rich & heavy oriental notes or warm woody/earthy
-                                aromas, we bring you a full spectrum of natural fragrances.
-                            </v-card-text>
-                            <v-card-subtitle>
-                                <a>Learn more</a>
-                            </v-card-subtitle>
-                        </v-card>
-                    </v-hover>
-                </v-col>
+                        <v-card class="pa-5 featured-tiles" :raised="!hover" height="100%">
 
-                <v-col md="4" lg="4" cols="12" class="pr-5">
-                    <v-hover v-slot:default="{ hover }">
-                        <v-card class="pa-5" :raised="!hover" height="100%">
-                            <v-icon color="primary" class="pl-3">mdi-washing-machine</v-icon>
-                            <v-card-title class="font-weight-bold">Detergent fragrances</v-card-title>
-                            <v-card-text>
-                                These products are specifically processed by using contemporary tools and
-                                technologies in tandem with industry set guidelines of quality.
-                            </v-card-text>
-                            <v-card-subtitle>
-                                <a>Learn more</a>
-                            </v-card-subtitle>
-                        </v-card>
-                    </v-hover>
-                </v-col>
+                            <v-icon color="primary" class="pl-3" v-if="product.id === 1">
+                                mdi-candle
+                            </v-icon>
+                            <v-icon color="primary" class="pl-3" v-if="product.id === 2">
+                                mdi-washing-machine
+                            </v-icon>
+                            <v-icon color="primary" class="pl-3" v-if="product.id === 12">
+                                mdi-spa
+                            </v-icon>
 
-                <v-col md="4" lg="4" cols="12" class="pl-5">
-                    <v-hover v-slot:default="{ hover }">
-                        <v-card class="pa-5" :raised="!hover" height="100%">
-                            <v-icon color="primary" class="pl-3">mdi-spa</v-icon>
-                            <v-card-title class="font-weight-bold">Fine fragrances</v-card-title>
+                            <v-card-title class="font-weight-bold">{{product.title}}</v-card-title>
                             <v-card-text>
-                                Extensive knowledge of perfumery and master craftsmanship have won the trust
-                                of leading fragrance labels and helped create unique brand identities.
+                                {{product.content}}
                             </v-card-text>
                             <v-card-subtitle>
-                                <a>Learn more</a>
+                                <a @click="$router.push(
+                                  { name: 'products',
+                                    params: {
+                                        id: product.id
+                                    }
+                                  })">
+                                    Learn more
+                                </a>
                             </v-card-subtitle>
                         </v-card>
                     </v-hover>
@@ -260,6 +245,19 @@
         .featured-products-section {
             position: relative;
             z-index: 15;
+
+            .featured-tiles {
+                .v-card__text {
+                    max-height: 90px;
+                    overflow: hidden;
+                }
+
+                .v-card__subtitle {
+                    a:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
         }
 
         .expertise-section {

@@ -1,6 +1,6 @@
 <template>
     <v-btn color="primary" rounded height="50" width="150" :text="!backgroundColor" :outlined="outlined"
-           class="font-weight-bold text-capitalize my-5">
+           class="font-weight-bold text-capitalize my-5" @click="btnClicked">
         {{text}}
     </v-btn>
 </template>
@@ -19,6 +19,11 @@
         outlined: {
           type: Boolean,
           default: false
+        }
+      },
+      methods: {
+        btnClicked() {
+          this.$emit('click');
         }
       }
     }

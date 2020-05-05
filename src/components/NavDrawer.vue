@@ -7,7 +7,7 @@
         <v-layout justify-center align-center fill-height column>
             <v-list>
                 <v-list-item class="text-center headline" v-for="(item, index) in $attrs.items" :key="index"
-                             @click="$router.push({ name: item.linkTo})">
+                             @click="$router.push({ name: item.linkTo, params: { id: item.linkParams }})">
                     {{item.title}}
                 </v-list-item>
             </v-list>

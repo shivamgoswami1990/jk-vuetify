@@ -1,13 +1,15 @@
 <template>
-    <div class="banner-section">
-        <div class="banner-container" :style="{ 'height': screenHeight + 'px' }">
+    <div class="products-section">
+        <div class="products-container" :style="{ 'height': screenHeight + 'px' }">
             <div class="background-layer">
+                <img :src="require('@/assets/shape-3.svg')" class="shape-3"/>
                 <div class="bg-shape"></div>
             </div>
 
             <v-container class="foreground-layer">
                 <v-slide-group show-arrows class="products-slide-group">
-                    <v-slide-item v-for="(product, index) in products" :key="index" :style="{width: containerWidth + 'px'}">
+                    <v-slide-item v-for="(product, index) in productList" :key="index"
+                                  :style="{width: containerWidth - 24 + 'px'}">
                         <div class="d-flex">
                             <v-card color="transparent" elevation="0" tile
                                     :width="$vuetify.breakpoint.smAndUp ? containerWidth/2 : containerWidth - 24">
@@ -16,27 +18,62 @@
                                 <p v-html="product.content"/>
 
                                 <contact-btn text="Get quote"/>
-                                <contact-btn :background-color="false" text="All products" class="ml-5"/>
+                                <contact-btn :background-color="false" text="All products" class="ml-5"
+                                             @click="scrollToAllProductsSection"/>
                             </v-card>
 
                             <v-card color="transparent" elevation="0" tile class="product-img-container"
                                     :width="$vuetify.breakpoint.smAndUp ? containerWidth/2 : containerWidth - 24">
                                 <div class="primary-img">
                                     <div class="border-div"></div>
-                                    <img :src="require('@/assets/Products/' + product.imagePath3)"/>
+                                    <img :src="require('@/assets/Products/' + product.imagePath2)"/>
 
                                     <div class="img-1">
                                         <img :src="require('@/assets/Products/' + product.imagePath1)"/>
                                         <div class="border-div"></div>
                                     </div>
                                 </div>
-<!--                                <img :src="require('@/assets/shape-2.svg')" class="shape-2"/>-->
                             </v-card>
                         </div>
                     </v-slide-item>
                 </v-slide-group>
             </v-container>
         </div>
+
+        <v-container class="all-products-section mt-5">
+            <a>Products</a>
+
+            <div class="d-flex mobile-max-width justify-space-between">
+                <div>
+                    <h2 class="display-2 my-5">All products</h2>
+                </div>
+
+                <contact-btn text="Get quote" outlined/>
+            </div>
+
+            <v-row no-gutters class="my-5">
+                <v-col md="4" lg="4" cols="12" class="pr-10 mb-10" v-for="(product, index) in productList" :key="index">
+                    <v-hover v-slot:default="{ hover }">
+                        <v-card class="pa-0" :raised="!hover" height="100%">
+                            <v-img :src="require('@/assets/Products/' + product.imagePath2)"
+                                   class="align-end justify-end" height="200">
+                            </v-img>
+
+                            <v-card-title class="font-weight-bold px-5">{{product.title}}</v-card-title>
+                            <v-card-text class="px-5 text-justify card-content">
+                                {{product.content}}
+                                <a class="px-5" @click="setAndScrollToTop(product.id)">
+                                    View more ...
+                                </a>
+                            </v-card-text>
+                            <v-card-actions class="pa-0 action-btn-container">
+                                <a>Get quote</a>
+                            </v-card-actions>
+                        </v-card>
+                    </v-hover>
+                </v-col>
+            </v-row>
+        </v-container>
     </div>
 </template>
 
@@ -46,8 +83,8 @@
         font-weight: bold;
     }
 
-    .banner-section {
-        .banner-container {
+    .products-section {
+        .products-container {
             position: relative;
 
             .background-layer {
@@ -74,6 +111,15 @@
                     -moz-transform-origin: 0% 50%;
                     -o-transform-origin: 0% 50%;
                     transform-origin: 0% 100%;
+                }
+
+                .shape-3 {
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-30%);
+                    height: 200px;
+                    z-index: 3;
                 }
             }
 
@@ -190,6 +236,52 @@
                 }
             }
         }
+
+        .all-products-section {
+            position: relative;
+            z-index: 15;
+
+            .card-content {
+                height: 90px;
+                overflow: hidden;
+                position: relative;
+
+                a {
+                    position: absolute;
+                    bottom: 2px;
+                    right: 0;
+                    z-index: 17;
+                    background-color: #FFFFFF;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .action-btn-container {
+                display: flex;
+                width: 100%;
+                margin-top: 10px;
+                overflow: hidden;
+                border-bottom: 1px solid #F50E02;
+                background-color: #F5F4FF;
+
+                a {
+                    flex: 1;
+                    text-align: center;
+                    padding: 15px 0;
+
+                    &:nth-child(1) {
+
+                        &:hover {
+                            background-color: #F50E02;
+                            color: #FFFFFF;
+                        }
+                    }
+                }
+            }
+        }
     }
 </style>
 
@@ -212,7 +304,20 @@
     data() {
       return {
         screenHeight: null,
-        containerWidth: null
+        containerWidth: null,
+        productList: [],
+        duration: 300,
+        offset: 0,
+        easing: 'easeInOutCubic'
+      }
+    },
+    computed: {
+      options() {
+        return {
+          duration: this.duration,
+          offset: this.offset,
+          easing: this.easing,
+        }
       }
     },
     mounted() {
@@ -220,13 +325,39 @@
       this.containerWidth = document.getElementsByClassName("foreground-layer")[0].clientWidth;
     },
     created() {
-      let vm = this;
-      window.addEventListener("load", function(event) {
-        let productSlider = document.getElementsByClassName("products-slide-group")[0];
-        let productOffsetBottom = vm.screenHeight - productSlider.clientHeight - productSlider.offsetTop;
-        document.getElementsByClassName("v-slide-group__prev")[0].style.bottom = -(productOffsetBottom - 40) + "px";
-        document.getElementsByClassName("v-slide-group__next")[0].style.bottom = -(productOffsetBottom - 60) + "px";
-      });
+      this.sortProductListById(this.$route.params.id);
+    },
+    updated() {
+      let productSlider = document.getElementsByClassName("products-slide-group")[0];
+      let productOffsetBottom = this.screenHeight - productSlider.clientHeight - productSlider.offsetTop;
+      document.getElementsByClassName("v-slide-group__prev")[0].style.bottom = -(productOffsetBottom - 40) + "px";
+      document.getElementsByClassName("v-slide-group__next")[0].style.bottom = -(productOffsetBottom - 60) + "px";
+    },
+    methods: {
+      sortProductListById(currentId) {
+        if (currentId !== undefined && currentId !== null) {
+          let unSortedList = [];
+          Object.assign(unSortedList, this.products);
+          this.productList = [];
+          for (let i = 0; i < unSortedList.length; i++) {
+            if (parseInt(unSortedList[i].id) === parseInt(currentId)) {
+              this.productList.push(unSortedList[i]);
+              unSortedList.splice(i, 1);
+              this.productList = this.productList.concat(unSortedList);
+              break;
+            }
+          }
+        } else {
+          this.productList = this.products;
+        }
+      },
+      setAndScrollToTop(currentId) {
+        this.sortProductListById(currentId);
+        this.$vuetify.goTo(document.getElementsByClassName("products-container")[0], this.options);
+      },
+      scrollToAllProductsSection() {
+        this.$vuetify.goTo(document.getElementsByClassName("all-products-section")[0], this.options);
+      }
     }
   }
 </script>
