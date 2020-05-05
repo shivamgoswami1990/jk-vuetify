@@ -1,6 +1,6 @@
 <template>
     <div class="banner-section">
-        <div class="banner-container" :style="{ 'height': screenHeight - 70 + 'px' }">
+        <div class="banner-container" :style="{ 'height': screenHeight + 'px' }">
             <div class="background-layer">
                 <div class="white">
                     <img :src="require('@/assets/shape-3.svg')" class="shape-3"/>
@@ -154,7 +154,7 @@
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
     a {
         color: #F50E02;
         font-weight: bold;
