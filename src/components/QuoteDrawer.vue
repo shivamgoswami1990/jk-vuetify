@@ -9,7 +9,7 @@
 
             <v-form ref="form" v-model="valid" lazy-validation @submit.prevent="save">
                 <v-select v-model="product" :items="products" item-text="title" chips
-                          label="Categories" multiple return-object
+                          label="Categories" multiple
                           persistent-hint hint="Select more for group inquiry">
                 </v-select>
 
@@ -82,7 +82,7 @@
       }
     },
     mounted() {
-      this.product = this.selectedProduct;
+      this.product = [this.selectedProduct];
     },
     methods: {
       closeDrawer() {

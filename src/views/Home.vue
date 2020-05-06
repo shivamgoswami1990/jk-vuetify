@@ -20,7 +20,8 @@
                     </p>
 
                     <contact-btn/>
-                    <contact-btn :background-color="false" text="Check our products" class="ml-5"/>
+                    <contact-btn :background-color="false" text="Check our products"
+                                 class="ml-5" @click="$router.push({ name: 'products', params: { id: 1 }})"/>
 
                 </div>
                 <div>
@@ -43,7 +44,7 @@
                     </p>
                 </div>
 
-                <contact-btn text="Explore more" outlined/>
+                <contact-btn text="Explore more" outlined @click="$router.push({ name: 'products', params: { id: 1 }})"/>
             </div>
 
             <v-row no-gutters class="my-5">

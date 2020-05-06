@@ -148,7 +148,15 @@
                         height: 70px;
                         z-index: 10;
                         i {
-                            color: #F50E02 !important;
+                            color: #F50E02;
+                        }
+
+                        &:hover {
+
+                        }
+
+                        &:active {
+                            box-shadow: none;
                         }
                     }
 
@@ -269,7 +277,6 @@
                 margin-top: 10px;
                 overflow: hidden;
                 border-bottom: 1px solid #F50E02;
-                background-color: #F5F4FF;
 
                 a {
                     flex: 1;
