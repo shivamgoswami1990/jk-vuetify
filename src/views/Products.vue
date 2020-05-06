@@ -26,10 +26,10 @@
                                     :width="$vuetify.breakpoint.smAndUp ? containerWidth/2 : containerWidth - 24">
                                 <div class="primary-img">
                                     <div class="border-div"></div>
-                                    <img :src="require('@/assets/Products/' + product.imagePath2)"/>
+                                    <img :src="product.imagePath2 ? require('@/assets/Products/' + product.imagePath2) : 'https://via.placeholder.com/400'"/>
 
                                     <div class="img-1">
-                                        <img :src="require('@/assets/Products/' + product.imagePath1)"/>
+                                        <img :src="product.imagePath1 ? require('@/assets/Products/' + product.imagePath1) : 'https://via.placeholder.com/400'"/>
                                         <div class="border-div"></div>
                                     </div>
                                 </div>
@@ -55,7 +55,7 @@
                 <v-col md="4" lg="4" cols="12" class="pr-10 mb-10" v-for="(product, index) in productList" :key="index">
                     <v-hover v-slot:default="{ hover }">
                         <v-card class="pa-0" :raised="!hover" height="100%">
-                            <v-img :src="require('@/assets/Products/' + product.imagePath2)"
+                            <v-img :src="product.imagePath2 ? require('@/assets/Products/' + product.imagePath2) : 'https://via.placeholder.com/400'"
                                    class="align-end justify-end" height="200">
                             </v-img>
 
