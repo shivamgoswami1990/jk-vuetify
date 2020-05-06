@@ -154,6 +154,7 @@
 
                     .v-slide-group__prev {
                         right: 50%;
+                        bottom: -30px;
                         transform: translateX(50%);
                         border-top-left-radius: 50%;
                         border-bottom-left-radius: 50%;
@@ -163,6 +164,7 @@
 
                     .v-slide-group__next {
                         right: calc(50% - 55px);
+                        bottom: -15px;
                         transform: translateX(50%);
                         border-top-left-radius: 10px;
                         border-bottom-left-radius: 10px;
@@ -331,12 +333,6 @@
     },
     created() {
       this.sortProductListById(this.$route.params.id);
-    },
-    updated() {
-      let productSlider = document.getElementsByClassName("products-slide-group")[0];
-      let productOffsetBottom = this.screenHeight - productSlider.clientHeight - productSlider.offsetTop;
-      document.getElementsByClassName("v-slide-group__prev")[0].style.bottom = -(productOffsetBottom - 40) + "px";
-      document.getElementsByClassName("v-slide-group__next")[0].style.bottom = -(productOffsetBottom - 60) + "px";
     },
     methods: {
       sortProductListById(currentId) {
