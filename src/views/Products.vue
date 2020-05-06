@@ -1,5 +1,7 @@
 <template>
     <div class="products-section">
+        <quote-drawer v-if="showDrawer" :selected-product="selectedProduct" @showDrawer="transitionend"/>
+
         <div class="products-container" :style="{ 'height': screenHeight + 'px' }">
             <div class="background-layer">
                 <img :src="require('@/assets/shape-3.svg')" class="shape-3"/>
@@ -17,7 +19,7 @@
                                 <h1 class="display-3 font-weight-bold my-5">{{product.title}}</h1>
                                 <p v-html="product.content"/>
 
-                                <contact-btn text="Get quote"/>
+                                <contact-btn text="Get quote" @click="showDrawerWithSelectedCategory(product)"/>
                                 <contact-btn :background-color="false" text="All products" class="ml-5"
                                              @click="scrollToAllProductsSection"/>
                             </v-card>
@@ -48,7 +50,7 @@
                     <h2 class="display-2 my-5">All products</h2>
                 </div>
 
-                <contact-btn text="Get quote" outlined/>
+                <contact-btn text="Get quote" outlined @click="showDrawerWithSelectedCategory(productList[0])"/>
             </div>
 
             <v-row no-gutters class="my-5">
@@ -67,7 +69,7 @@
                                 </a>
                             </v-card-text>
                             <v-card-actions class="pa-0 action-btn-container">
-                                <a>Get quote</a>
+                                <a @click="showDrawerWithSelectedCategory(product)">Get quote</a>
                             </v-card-actions>
                         </v-card>
                     </v-hover>
@@ -288,6 +290,7 @@
 <script>
   // @ is an alias to /src
   import ContactBtn from '@/components/ContactBtn.vue';
+  import QuoteDrawer from '@/components/QuoteDrawer.vue';
 
   export default {
     metaInfo: {
@@ -299,7 +302,7 @@
       ]
     },
     components: {
-      ContactBtn
+      ContactBtn, QuoteDrawer
     },
     data() {
       return {
@@ -308,7 +311,9 @@
         productList: [],
         duration: 300,
         offset: 0,
-        easing: 'easeInOutCubic'
+        easing: 'easeInOutCubic',
+        showDrawer: false,
+        selectedProduct: null
       }
     },
     computed: {
@@ -357,6 +362,13 @@
       },
       scrollToAllProductsSection() {
         this.$vuetify.goTo(document.getElementsByClassName("all-products-section")[0], this.options);
+      },
+      transitionend() {
+        this.showDrawer = false;
+      },
+      showDrawerWithSelectedCategory(selectedProduct) {
+        this.selectedProduct = selectedProduct;
+        this.showDrawer = true;
       }
     }
   }

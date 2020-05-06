@@ -5,7 +5,7 @@
       <nav-drawer :items="navItems" v-if="showDrawer" @showDrawer="transitionend" />
 
       <!-- App bar -->
-      <v-app-bar app color="transparent" tile height="70px" elevation="0" hide-on-scroll fixed class="app-bar">
+      <v-app-bar app color="transparent" tile height="70px" elevation="0" hide-on-scroll fixed>
         <v-container class="d-flex align-center">
           <v-app-bar-nav-icon @click="showDrawer = true" v-if="$vuetify.breakpoint.mdAndDown">
             <slot>
@@ -51,9 +51,15 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    .app-bar {
-      z-index: 400;
+    header.v-app-bar {
+      z-index: 40;
     }
+
+    .v-navigation-drawer {
+      z-index: 50;
+    }
+
+
 
     .nav-link {
       cursor: pointer;
