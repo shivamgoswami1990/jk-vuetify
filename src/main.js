@@ -208,6 +208,8 @@ Vue.prototype.products = [
   }
 ]
 
+Vue.prototype.primaryGradientColour = "linear-gradient(to top right, #F5F4FF 20%, #FFFFFF 70%)";
+
 Vue.config.productionTip = false
 
 new Vue({
