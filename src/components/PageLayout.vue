@@ -83,9 +83,6 @@
 </style>
 
 <script>
-  // @ is an alias to /src
-  import ContactBtn from '@/components/ContactBtn.vue';
-
   export default {
     props: {
       leftBgCol: {
@@ -96,9 +93,6 @@
         type: String,
         default: "#F5F4FF"
       }
-    },
-    components: {
-      ContactBtn
     },
     data() {
       return {
