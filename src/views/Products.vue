@@ -330,9 +330,6 @@
         screenHeight: null,
         containerWidth: null,
         productList: [],
-        duration: 300,
-        offset: 0,
-        easing: 'easeInOutCubic',
         showDrawer: false,
         selectedProduct: null
       }
@@ -340,16 +337,15 @@
     computed: {
       options() {
         return {
-          duration: this.duration,
-          offset: this.offset,
-          easing: this.easing,
+          duration: 300,
+          offset: 0,
+          easing: 'easeInOutCubic',
         }
       }
     },
     mounted() {
       this.screenHeight = this.$vuetify.breakpoint.height;
       this.containerWidth = document.getElementsByClassName("foreground-layer")[0].clientWidth;
-      console.log(this.primaryGradientColour)
     },
     created() {
       this.sortProductListById(this.$route.params.id);

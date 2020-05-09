@@ -27,7 +27,12 @@
             </a>
           </div>
 
-          <contact-btn text="Get in touch"/>
+          <contact-btn text="Get in touch" @click="$router.push(
+            { name: 'about',
+              params: {
+                navigateToFormOnMobile: true
+              }
+            })"/>
         </v-container>
       </v-app-bar>
       <!-- App bar -->

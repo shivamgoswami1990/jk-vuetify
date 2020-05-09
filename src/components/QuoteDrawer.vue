@@ -13,12 +13,11 @@
 </template>
 
 <script>
-  import ContactBtn from '@/components/ContactBtn.vue';
   import ContactForm from '@/components/ContactForm.vue';
 
   export default {
     components: {
-      ContactBtn, ContactForm
+      ContactForm
     },
     props: {
       selectedProduct: {

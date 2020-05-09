@@ -122,7 +122,6 @@
 <script>
   // @ is an alias to /src
   import PageLayout from '@/components/PageLayout.vue';
-  import ContactBtn from '@/components/ContactBtn.vue';
   import ContactForm from '@/components/ContactForm.vue';
 
   export default {
@@ -135,7 +134,21 @@
       ]
     },
     components: {
-      PageLayout, ContactBtn, ContactForm
+      PageLayout, ContactForm
+    },
+    computed: {
+      options() {
+        return {
+          duration: 300,
+          offset: 0,
+          easing: 'easeInOutCubic',
+        }
+      }
+    },
+    mounted() {
+      if (("navigateToFormOnMobile" in this.$route.params) && this.$vuetify.breakpoint.smAndDown) {
+        this.$vuetify.goTo(document.getElementsByClassName("mobile-form")[0], this.options);
+      }
     }
   }
 </script>
