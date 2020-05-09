@@ -67,6 +67,10 @@
                     left: 50%;
                     width: 140px;
                     transform: translateX(-50%) translateY(50%);
+
+                    @media screen and (max-width: 600px) {
+                        bottom: -30px;
+                    }
                 }
             }
 

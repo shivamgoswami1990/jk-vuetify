@@ -17,7 +17,7 @@
               <v-img :src="require('@/assets/logo.png')" contain></v-img>
             </v-avatar>
           </a>
-          <h3>JK Aromatics And Perfumers</h3>
+          <h3 v-if="$vuetify.breakpoint.smAndUp">JK Aromatics And Perfumers</h3>
 
           <v-spacer></v-spacer>
           <div class="hidden-sm-and-down mr-2">
@@ -67,10 +67,6 @@
       &:hover {
         border-bottom: 4px solid #F50E02;
       }
-    }
-
-    @media screen and (max-width: 1024px) {
-      display: none;
     }
 
     .mobile-max-width {

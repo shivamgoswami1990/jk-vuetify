@@ -18,7 +18,7 @@
                                 <h3 class="text-left font-weight-bold body-1">JK Aromatics and Perfumers</h3>
                             </div>
 
-                            <p class="text-justify py-5 pl-10 body-2">
+                            <p class="text-justify py-5 body-2" :class="$vuetify.breakpoint.smAndUp ? 'pl-10' : ''">
                                 Ours is the finest firm manufacturing and supplying a spellbinding series of
                                 Fragrances and Oils nationally since 1989.
                             </p>
@@ -68,7 +68,7 @@
                 </v-container>
             </v-footer>
 
-            <p class="text-center body-2 font-weight-bold">
+            <p class="text-center body-2 font-weight-bold mt-5">
                 © Copyright 2020 JK Aromatics and Perfumers. All rights reserved
                 <br>
                 Made with ❣ by <a href="https://shivamgoswami.live" target="_blank">Shivam Goswami</a>
@@ -84,8 +84,7 @@
         .background-layer {
             position: absolute;
             top: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
             z-index: 5;
 
             .shape-6 {
@@ -107,8 +106,12 @@
                 padding: 20px;
                 overflow: hidden;
 
+                @media screen and (max-width: 600px) {
+                    padding: 0;
+                }
+
                 li {
-                    padding: 10px 15px;
+                    padding: 0 15px;
                     float: left;
                     &:hover {
                         cursor: pointer;

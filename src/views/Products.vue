@@ -5,11 +5,14 @@
                 <v-slide-group show-arrows class="products-slide-group">
                     <v-slide-item v-for="(product, index) in productList" :key="index"
                                   :style="{width: containerWidth - 24 + 'px'}">
-                        <div class="d-flex">
+                        <div class="d-flex products-flex-row">
                             <v-card color="transparent" elevation="0" tile
                                     :width="$vuetify.breakpoint.smAndUp ? containerWidth/2 : containerWidth - 24">
                                 <a class="my-5">Best sellers</a>
-                                <h1 class="display-3 font-weight-bold my-5">{{product.title}}</h1>
+                                <h1 class="display-3 font-weight-bold"
+                                    :class="$vuetify.breakpoint.smAndUp ? 'my-5' : 'mb-5'">
+                                    {{product.title}}
+                                </h1>
                                 <p v-html="product.content"/>
 
                                 <contact-btn text="Get quote" @click="showDrawerWithSelectedCategory(product)"/>
@@ -18,6 +21,7 @@
                             </v-card>
 
                             <v-card color="transparent" elevation="0" tile class="product-img-container"
+                                    v-if="$vuetify.breakpoint.smAndUp"
                                     :width="$vuetify.breakpoint.smAndUp ? containerWidth/2 : containerWidth - 24">
                                 <div class="primary-img">
                                     <div class="border-div"></div>
@@ -50,7 +54,9 @@
             </div>
 
             <v-row no-gutters class="my-5">
-                <v-col md="4" lg="4" cols="12" class="pr-10 mb-10" v-for="(product, index) in productList" :key="index">
+                <v-col md="4" lg="4" cols="12" class="mb-10"
+                       :class="$vuetify.breakpoint.smAndUp ? 'pr-10' : ''"
+                       v-for="(product, index) in productList" :key="index">
                     <v-hover v-slot:default="{ hover }">
                         <v-card class="pa-0" :raised="!hover" height="100%">
                             <v-img :src="product.imagePath2 ? require('@/assets/Products/' + product.imagePath2) : 'https://via.placeholder.com/400'"
@@ -116,6 +122,12 @@
                 border-bottom-left-radius: 50%;
                 border-top-right-radius: 10px;
                 border-bottom-right-radius: 10px;
+
+                @media screen and (max-width: 600px) {
+                    right: 20%;
+                    top: 15%;
+                    transform: unset;
+                }
             }
 
             .v-slide-group__next {
@@ -126,6 +138,12 @@
                 border-bottom-left-radius: 10px;
                 border-top-right-radius: 50%;
                 border-bottom-right-radius: 50%;
+
+                @media screen and (max-width: 600px) {
+                    right: calc(20% - 65px);
+                    top: calc(15% + 25px);
+                    transform: unset;
+                }
             }
 
             .product-img-container {
@@ -188,10 +206,57 @@
                 }
             }
 
+            .products-flex-row {
+                @media screen and (max-width: 600px) {
+                    height: 100vh;
+                    align-items: center;
+                }
+            }
+
             p {
                 max-width: 60%;
                 min-width: 350px;
                 text-align: justify;
+
+                @media screen and (max-width: 600px) {
+                    max-width: unset;
+                    padding: 10px;
+
+                    --lh: 1rem;
+                    --max-lines: 16;
+                    position: relative;
+                    max-height: calc(var(--lh) * var(--max-lines));
+                    overflow: hidden;
+                    padding-right: 1rem; /* space for ellipsis */
+
+                    &::before {
+                        position: absolute;
+                        content: "...";
+                        inset-block-end: 0; /* "bottom" */
+                        inset-inline-end: 0; /* "right" */
+                    }
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        inset-inline-end: 0; /* "right" */
+                        width: 1rem;
+                        height: 1rem;
+                        background: white;
+                    }
+                }
+            }
+
+            h1 {
+
+                @media screen and (max-width: 400px) {
+                    font-size: 36px !important;
+                    line-height: 2.5rem;
+                    max-width: 60% !important;
+                }
+
+                @media screen and (max-width: 600px) {
+                    max-width: 70%;
+                }
             }
         }
     }

@@ -12,9 +12,13 @@
                         and <a class="text-decoration-underline font-weight-regular">industry association</a>
                     </p>
 
-                    <contact-btn/>
-                    <contact-btn :background-color="false" text="Check our products"
-                                 class="ml-5" @click="$router.push({ name: 'products', params: { id: 1 }})"/>
+                    <div class="action-btn-wrapper">
+                        <contact-btn/>
+                        <contact-btn :background-color="false" text="Check our products"
+                                     class="ml-5" @click="$router.push({ name: 'products', params: { id: 1 }})"/>
+                    </div>
+
+                    <img :src="require('@/assets/banner.png')"/>
 
                 </div>
                 <div>
@@ -37,12 +41,13 @@
                     </p>
                 </div>
 
-                <contact-btn text="Explore more" outlined @click="$router.push({ name: 'products', params: { id: 1 }})"/>
+                <contact-btn text="Explore more" outlined class="explore-btn"
+                             @click="$router.push({ name: 'products', params: { id: 1 }})"/>
             </div>
 
-            <v-row no-gutters class="my-5">
-                <v-col md="4" lg="4" cols="12" class="pr-10" v-for="(product, index) in products"
-                       :key="index" v-if="product.isFeatured">
+            <v-row no-gutters :class="$vuetify.breakpoint.smAndUp ? 'my-5' : ''">
+                <v-col sm="4" md="4" lg="4" cols="12" :class="$vuetify.breakpoint.smAndUp ? 'pr-10' : 'pr-0 mb-5'"
+                       v-for="(product, index) in products" :key="index" v-if="product.isFeatured">
                     <v-hover v-slot:default="{ hover }">
                         <v-card class="pa-5 featured-tiles" :raised="!hover" height="100%">
 
@@ -83,18 +88,18 @@
             </div>
 
             <div class="foreground-layer">
-                <v-container class="section-container mt-5">
+                <v-container class="section-container" :class="$vuetify.breakpoint.smAndUp ? 'mt-5' : ''">
                     <div>
                         <v-row no-gutters class="first-row my-10">
-                            <v-col class="left-col">
+                            <v-col class="left-col" v-if="$vuetify.breakpoint.smAndUp">
                                 <v-img :src="require('@/assets/section-1.png')" contain height="420" max-width="450px"/>
                             </v-col>
-                            <v-col class="right-col pl-10">
+                            <v-col class="right-col" :class="$vuetify.breakpoint.smAndUp ? 'pl-10' : ''">
                                 <div class="mobile-max-width">
                                     <div>
                                         <a>Deliverability</a>
                                         <h2 class="display-2 my-5">Right people, Right fragrances</h2>
-                                        <p>
+                                        <p class="text-justify">
                                             JK Aromatics and Perfumers has been helping create unique brand identities since 1989.
                                             Our refined aesthetics, extensive knowledge of perfumery and master craftsmanship
                                             have won the trust of leading fragrance labels. The art of designing a signature
@@ -107,12 +112,12 @@
                         </v-row>
 
                         <v-row no-gutters class="second-row my-10">
-                            <v-col class="right-col pl-10">
+                            <v-col class="right-col" :class="$vuetify.breakpoint.smAndUp ? 'pl-10' : ''">
                                 <div class="mobile-max-width">
                                     <div>
                                         <a>Reliability</a>
                                         <h2 class="display-2 my-5">State of the art solutions</h2>
-                                        <p>
+                                        <p class="text-justify">
                                             Our firm is involved in delivering a vast series products
                                             to valued customers. The offered items are made with the help of modern
                                             techniques, optimum grade ingredients in compliance with the set
@@ -122,7 +127,7 @@
                                     </div>
                                 </div>
                             </v-col>
-                            <v-col class="left-col">
+                            <v-col class="left-col" v-if="$vuetify.breakpoint.smAndUp">
                                 <v-img :src="require('@/assets/section-2.png')" contain height="420" max-width="450px"/>
                             </v-col>
                         </v-row>
@@ -140,14 +145,44 @@
         display: flex;
         flex-direction: row;
 
+        @media screen and (max-width: 600px) {
+            padding-top: 70px;
+        }
+
         > div {
+            width: 50%;
+
+            @media screen and (max-width: 600px) {
+                width: 100%;
+            }
 
             &:nth-child(1) {
                 align-self: center;
-                width: 50%;
+
+                @media screen and (max-width: 600px) {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                img {
+                    display: none;
+
+                    @media screen and (max-width: 600px) {
+                        display: block;
+                        position: absolute;
+                        width: 45%;
+                        top: 30%;
+                        right: 0;
+                    }
+                }
 
                 h1 {
                     line-height: 1.2;
+
+                    @media screen and (max-width: 600px) {
+                        max-width: 70%;
+                    }
                 }
             }
 
@@ -157,8 +192,11 @@
                 align-items: center;
                 justify-content: center;
                 flex: 1;
-                width: 50%;
                 position: relative;
+
+                @media screen and (max-width: 600px) {
+                    display: none;
+                }
 
                 img {
                     width: 100%;
@@ -179,6 +217,12 @@
     .featured-products-section {
         position: relative;
         z-index: 15;
+
+        .explore-btn {
+            @media screen and (max-width: 600px) {
+                display: none;
+            }
+        }
 
         .featured-tiles {
             .v-card__text {
