@@ -1,24 +1,29 @@
 <template>
-    <div class="footer-with-nav">
+    <v-footer class="footer-with-nav pa-0" color="transparent">
         <div class="background-layer">
             <img :src="require('@/assets/shape-6.svg')" class="shape-6"/>
         </div>
 
         <div class="foreground-layer">
-            <v-footer color="transparent">
-
+            <v-layout fill-height justify-center align-center column class="pa-0">
                 <v-container>
                     <v-row no-gutters>
                         <v-col cols="12" md="3" sm="12" class="text-center">
-                            <div class="d-flex">
-                                <v-avatar width="200px" tile>
-                                    <v-img :src="require('@/assets/logo.png')" contain/>
-                                </v-avatar>
+                            <div class="d-flex justify-center">
+                                <v-list>
+                                    <v-list-item>
+                                        <v-list-item-avatar>
+                                            <v-img :src="require('@/assets/logo.png')" contain/>
+                                        </v-list-item-avatar>
 
-                                <h3 class="text-left font-weight-bold body-1">JK Aromatics and Perfumers</h3>
+                                        <v-list-item-content>
+                                            <h3 class="text-left font-weight-bold body-1">JK Aromatics and Perfumers</h3>
+                                        </v-list-item-content>
+                                    </v-list-item>
+                                </v-list>
                             </div>
 
-                            <p class="text-justify py-5 body-2" :class="$vuetify.breakpoint.smAndUp ? 'pl-10' : ''">
+                            <p class="text-justify py-5 body-2" :class="$vuetify.breakpoint.smAndUp ? 'pl-10' : 'pt-0'">
                                 Ours is the finest firm manufacturing and supplying a spellbinding series of
                                 Fragrances and Oils nationally since 1989.
                             </p>
@@ -66,15 +71,15 @@
                         </v-col>
                     </v-row>
                 </v-container>
-            </v-footer>
 
-            <p class="text-center body-2 font-weight-bold mt-5">
-                © Copyright 2020 JK Aromatics and Perfumers. All rights reserved
-                <br>
-                Made with ❣ by <a href="https://shivamgoswami.live" target="_blank">Shivam Goswami</a>
-            </p>
+                <p class="text-center body-2 font-weight-bold mt-5">
+                    © Copyright 2020 JK Aromatics and Perfumers. All rights reserved
+                    <br>
+                    Made with ❣ by <a href="https://shivamgoswami.live" target="_blank">Shivam Goswami</a>
+                </p>
+            </v-layout>
         </div>
-    </div>
+    </v-footer>
 </template>
 
 <style lang="scss">
@@ -84,7 +89,8 @@
         .background-layer {
             position: absolute;
             top: 0;
-            width: 100vw;
+            width: 100%;
+            height: 100%;
             z-index: 5;
 
             .shape-6 {
@@ -92,13 +98,14 @@
                 top: 0;
                 left: 0;
                 height: 100%;
-                width: 900px;
+                width: 100%;
             }
         }
 
         .foreground-layer {
             position: relative;
             z-index: 15;
+            width: 100%;
 
             #sitemap-links {
                 list-style-type: none;

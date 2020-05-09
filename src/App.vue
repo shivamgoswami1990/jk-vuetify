@@ -92,8 +92,7 @@
         navItems: [
           { title: "Home", isMainNavItem: true, linkTo: 'home'},
           { title: "Our Products", isMainNavItem: true, linkTo: 'products', linkParams: 1},
-          { title: "About Us", isMainNavItem: true, linkTo: 'about'},
-          { title: "Contact Us", isMainNavItem: true, linkTo: 'contactus'},
+          { title: "About", isMainNavItem: true, linkTo: 'about'}
         ]
       }
     },

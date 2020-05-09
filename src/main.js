@@ -209,6 +209,7 @@ Vue.prototype.products = [
 ]
 
 Vue.prototype.primaryGradientColour = "linear-gradient(to top right, #F5F4FF 20%, #FFFFFF 70%)";
+Vue.prototype.reversedPrimaryGradientColour = "linear-gradient(to bottom left, #FFFFFF 20%, #F5F4FF 90%)";
 
 Vue.config.productionTip = false
 
