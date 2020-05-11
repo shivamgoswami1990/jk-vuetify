@@ -13,7 +13,7 @@
                                 <v-list>
                                     <v-list-item>
                                         <v-list-item-avatar>
-                                            <v-img :src="require('@/assets/logo.png')" contain/>
+                                            <v-img :src="require('@/assets/logo.webp')" contain/>
                                         </v-list-item-avatar>
 
                                         <v-list-item-content>
@@ -34,7 +34,7 @@
 
                             <div id="contactus-list">
                                 <div class="contactus-item">
-                                    <v-icon color="primary">mdi-map-marker</v-icon>
+                                    <v-icon color="primary">{{mdiMapMarker}}</v-icon>
                                     <p class="body-2">
                                         No. 2187/13, Beri Market, Gali Hinga Beg, Tilak Bazar,
                                         Delhi-110006, India
@@ -42,14 +42,14 @@
                                 </div>
 
                                 <div class="contactus-item">
-                                    <v-icon color="primary">mdi-phone</v-icon>
+                                    <v-icon color="primary">{{mdiPhone}}</v-icon>
                                     <p class="body-2">
                                         +91-9868174388
                                     </p>
                                 </div>
 
                                 <div class="contactus-item">
-                                    <v-icon color="primary">mdi-email</v-icon>
+                                    <v-icon color="primary">{{mdiEmail}}</v-icon>
                                     <p class="body-2">
                                         contact@jkaromaticsandperfumers.com
                                     </p>
@@ -75,7 +75,8 @@
                 <p class="text-center body-2 font-weight-bold mt-5">
                     © Copyright 2020 JK Aromatics and Perfumers. All rights reserved
                     <br>
-                    Made with ❣ by <a href="https://shivamgoswami.live" target="_blank">Shivam Goswami</a>
+                    Made with ❣ by
+                    <a href="https://shivamgoswami.live" target="_blank" rel="noopener">Shivam Goswami</a>
                 </p>
             </v-layout>
         </div>
@@ -152,3 +153,20 @@
         }
     }
 </style>
+
+<script>
+  // @ is an alias to /src
+  import { mdiMapMarker } from '@mdi/js'
+  import { mdiPhone } from '@mdi/js';
+  import { mdiEmail } from '@mdi/js';
+
+  export default {
+    data() {
+      return {
+        mdiMapMarker: mdiMapMarker,
+        mdiPhone: mdiPhone,
+        mdiEmail: mdiEmail
+      }
+    }
+  }
+</script>

@@ -2,7 +2,7 @@
     <v-navigation-drawer v-model="drawer" temporary app @transitionend="closeDrawer"
                          width="100%">
         <v-icon size="35" style="position: absolute; right: 10px; top: 10px" color="primary" @click="closeDrawer">
-            mdi-close
+            {{mdiClose}}
         </v-icon>
         <v-layout justify-center align-center fill-height column>
             <v-list>
@@ -16,10 +16,13 @@
 </template>
 
 <script>
+    import { mdiClose } from '@mdi/js';
+
     export default {
         data() {
             return {
-                drawer: true
+              drawer: true,
+              mdiClose: mdiClose
             }
         },
         methods: {

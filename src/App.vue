@@ -9,12 +9,12 @@
         <v-container class="d-flex align-center">
           <v-app-bar-nav-icon @click="showDrawer = true" v-if="$vuetify.breakpoint.mdAndDown">
             <slot>
-              <v-icon size="32" color="primary">mdi-text</v-icon>
+              <v-icon size="32" color="primary">{{mdiText}}</v-icon>
             </slot>
           </v-app-bar-nav-icon>
           <a @click="$router.push({ name: 'home'})">
             <v-avatar width="70px" tile>
-              <v-img :src="require('@/assets/logo.png')" contain></v-img>
+              <v-img :src="require('@/assets/logo.webp')" contain></v-img>
             </v-avatar>
           </a>
           <h3 v-if="$vuetify.breakpoint.smAndUp">JK Aromatics And Perfumers</h3>
@@ -86,6 +86,7 @@
   import NavDrawer from '@/components/NavDrawer.vue';
   import ContactBtn from '@/components/ContactBtn.vue';
   import FooterWithBottomNav from '@/components/Footer.vue';
+  import { mdiText } from '@mdi/js';
 
   export default {
     components: {
@@ -94,6 +95,7 @@
     data() {
       return {
         showDrawer: false,
+        mdiText: mdiText,
         navItems: [
           { title: "Home", isMainNavItem: true, linkTo: 'home'},
           { title: "Our Products", isMainNavItem: true, linkTo: 'products', linkParams: 1},

@@ -7,8 +7,8 @@ Vue.prototype.products = [
   {
     "id": 1,
     "title": "Incense fragrances",
-    "imagePath1": "Incense/1.jpg",
-    "imagePath2": "Incense/5.jpg",
+    "imagePath1": "Incense/1.webp",
+    "imagePath2": "Incense/5.webp",
     "content": "From time immemorial, incense has been burnt during worship and festivities for creating the ambience" +
       " to attain solace and spirituality. In modern times, it has become a tool to create a happening mood to welcome" +
       " someone you like, an aura to relax or enhance your spirit. Be it light & breezy floral/fruity blends, rich & " +
@@ -22,8 +22,8 @@ Vue.prototype.products = [
   {
     "id": 2,
     "title": "Detergent fragrances",
-    "imagePath1": "Detergent/1.jpg",
-    "imagePath2": "Detergent/6.jpg",
+    "imagePath1": "Detergent/1.webp",
+    "imagePath2": "Detergent/6.webp",
     "content": "Our enterprise is ranked amid one of the leading names of the industry immersed in the business of" +
       " presenting a broad plethora of Detergent Fragrances. These products are specifically processed by using" +
       " contemporary tools and technologies in tandem with industry set guidelines of quality. Additionally," +
@@ -68,8 +68,8 @@ Vue.prototype.products = [
   {
     "id": 5,
     "title": "Soap Fragrances",
-    "imagePath1": "Soap/1.jpg",
-    "imagePath2": "Soap/6.jpg",
+    "imagePath1": "Soap/1.webp",
+    "imagePath2": "Soap/6.webp",
     "content": "Backed by our vast experience and a talented team of workers, we are delivering a best series of " +
       "Soap Fragrances. The mentioned assortment is developed utilizing supreme grade substances and allied material," +
       " source from the certified vendors of the industry. In addition to this, the mentioned range is highly in" +
@@ -83,8 +83,8 @@ Vue.prototype.products = [
   {
     "id": 6,
     "title": "Fabric Fragrances",
-    "imagePath1": "Fabric/1.jpg",
-    "imagePath2": "Fabric/6.jpg",
+    "imagePath1": "Fabric/1.webp",
+    "imagePath2": "Fabric/6.webp",
     "content": "We are a prominent name actively engaged in delivering a large variety of FabricFragrances to vast" +
       " customers’ base across the nation. The offered items are appreciated for its refreshing smell. Our workers " +
       "ensure to supply this range in standard as well as customized packaging in order to cater to the aesthetic" +
@@ -98,8 +98,8 @@ Vue.prototype.products = [
   {
     "id": 7,
     "title": "Aromatherapy Fragrances",
-    "imagePath1": "Aromatherapy/1.jpg",
-    "imagePath2": "Aromatherapy/6.jpg",
+    "imagePath1": "Aromatherapy/1.webp",
+    "imagePath2": "Aromatherapy/6.webp",
     "content": "Our firm specializes in presenting an unmatched compilation of Aromatherapy Fragrances. So as to" +
       " preserve industry defined quality norms & principles, the complete variety is processed using finest grade" +
       " material and avant-garde technology. More to this, these products are examined properly by quality examiners" +
@@ -114,8 +114,8 @@ Vue.prototype.products = [
   {
     "id": 8,
     "title": "Cosmetics Fragrances",
-    "imagePath1": "Cosmetics/1.png",
-    "imagePath2": "Cosmetics/6.jpg",
+    "imagePath1": "Cosmetics/1.webp",
+    "imagePath2": "Cosmetics/6.webp",
     "content": "With the aid of our adroit and deft personnel, we are able to present an incomparable gamut of" +
       " Cosmetics Fragrances. The offered variety is inspected on several modified provisions and forms in" +
       " accordance with the diverse demands of patrons. In addition to this, the presented variety is made" +
@@ -130,8 +130,8 @@ Vue.prototype.products = [
   {
     "id": 9,
     "title": "Perfume spray",
-    "imagePath1": "Spray/1.jpg",
-    "imagePath2": "Spray/6.jpg",
+    "imagePath1": "Spray/1.webp",
+    "imagePath2": "Spray/6.webp",
     "content": "If you are familiar with the brand, you know this is not merely Perfume Spray," +
       " but they do serve that purpose.  I love to put the serum on my hands and run it through my hair." +
       " The Pure Energy is my favorite for this particular use, with notes of grapefruit, coffee, black pepper," +
@@ -156,8 +156,8 @@ Vue.prototype.products = [
   {
     "id": 11,
     "title": "Synthetic Essential Oils",
-    "imagePath1": "SyntheticOils/1.jpg",
-    "imagePath2": "SyntheticOils/6.jpg",
+    "imagePath1": "SyntheticOils/1.webp",
+    "imagePath2": "SyntheticOils/6.webp",
     "content": "We being a highly illustrious name of the nation are enthusiastically indulged in presenting a " +
       "superlative gamut of Synthetic Essential Oils. Prepared with excellence, these products are made in line " +
       "with the set guidelines of excellence. Furthermore, their accurate composition makes these highly commended." +
@@ -172,8 +172,8 @@ Vue.prototype.products = [
   {
     "id": 12,
     "title": "Fine Fragrance",
-    "imagePath1": "Fine/1.jpg",
-    "imagePath2": "Fine/6.jpg",
+    "imagePath1": "Fine/1.webp",
+    "imagePath2": "Fine/6.webp",
     "content": "Manufacturers across the globe Fine Fragrance seek to introduce most appropriate & exquisite aromas" +
       " to ensure better brand positioning and greater product success. Our refined aesthetics, extensive knowledge" +
       " of perfumery and master craftsmanship have won the trust of leading fragrance labels and helped create unique" +
@@ -186,8 +186,8 @@ Vue.prototype.products = [
   {
     "id": 13,
     "title": "Natural Essential Oils",
-    "imagePath1": "NaturalOils/1.jpg",
-    "imagePath2": "NaturalOils/6.jpg",
+    "imagePath1": "NaturalOils/1.webp",
+    "imagePath2": "NaturalOils/6.webp",
     "content": "Our firm is involved in delivering a vast series of Natural Essential Oils to valued customers. " +
       "The offered items are made with the help of modern techniques and optimum grade ingredients in compliance" +
       " with the set market quality. In addition to this, the mentioned range is accessible in variety of packaging" +

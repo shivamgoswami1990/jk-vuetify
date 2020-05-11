@@ -18,11 +18,11 @@
                                      class="ml-5" @click="$router.push({ name: 'products', params: { id: 1 }})"/>
                     </div>
 
-                    <img :src="require('@/assets/banner.png')"/>
+                    <img :src="require('@/assets/banner.webp')"/>
 
                 </div>
                 <div>
-                    <img :src="require('@/assets/banner.png')"/>
+                    <img :src="require('@/assets/banner.webp')"/>
                     <img :src="require('@/assets/shape-1.svg')" class="shape-1"/>
                 </div>
             </div>
@@ -52,13 +52,13 @@
                         <v-card class="pa-5 featured-tiles" :raised="!hover" height="100%">
 
                             <v-icon color="primary" class="pl-3" v-if="product.id === 1">
-                                mdi-candle
+                                {{mdiCandle}}
                             </v-icon>
                             <v-icon color="primary" class="pl-3" v-if="product.id === 2">
-                                mdi-washing-machine
+                                {{mdiWashingMachine}}
                             </v-icon>
                             <v-icon color="primary" class="pl-3" v-if="product.id === 12">
-                                mdi-spa
+                                {{mdiSpa}}
                             </v-icon>
 
                             <v-card-title class="font-weight-bold">{{product.title}}</v-card-title>
@@ -92,7 +92,7 @@
                     <div>
                         <v-row no-gutters class="first-row my-10">
                             <v-col class="left-col" v-if="$vuetify.breakpoint.smAndUp">
-                                <v-img :src="require('@/assets/section-1.png')" contain height="420" max-width="450px"/>
+                                <v-img :src="require('@/assets/section-1.webp')" contain height="420" max-width="450px"/>
                             </v-col>
                             <v-col class="right-col" :class="$vuetify.breakpoint.smAndUp ? 'pl-10' : ''">
                                 <div class="mobile-max-width">
@@ -128,7 +128,7 @@
                                 </div>
                             </v-col>
                             <v-col class="left-col" v-if="$vuetify.breakpoint.smAndUp">
-                                <v-img :src="require('@/assets/section-2.png')" contain height="420" max-width="450px"/>
+                                <v-img :src="require('@/assets/section-2.webp')" contain height="420" max-width="450px"/>
                             </v-col>
                         </v-row>
                     </div>
@@ -293,6 +293,9 @@
   // @ is an alias to /src
   import PageLayout from '@/components/PageLayout.vue';
   import ContactBtn from '@/components/ContactBtn.vue';
+  import { mdiCandle } from '@mdi/js'
+  import { mdiWashingMachine } from '@mdi/js';
+  import { mdiSpa } from '@mdi/js';
 
   export default {
     metaInfo: {
@@ -302,6 +305,13 @@
         { name: 'name', content: '' },
         { name: 'description', content: '' }
       ]
+    },
+    data() {
+      return {
+        mdiCandle: mdiCandle,
+        mdiWashingMachine: mdiWashingMachine,
+        mdiSpa: mdiSpa
+      }
     },
     components: {
       PageLayout, ContactBtn
