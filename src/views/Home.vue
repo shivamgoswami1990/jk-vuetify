@@ -47,7 +47,7 @@
 
             <v-row no-gutters :class="$vuetify.breakpoint.smAndUp ? 'my-5' : ''">
                 <v-col sm="4" md="4" lg="4" cols="12" :class="$vuetify.breakpoint.smAndUp ? 'pr-10' : 'pr-0 mb-5'"
-                       v-for="(product, index) in products" :key="index" v-if="product.isFeatured">
+                       v-for="(product, index) in productList" :key="index" v-if="product.isFeatured">
                     <v-hover v-slot:default="{ hover }">
                         <v-card class="pa-5 featured-tiles" :raised="!hover" height="100%">
 
@@ -310,8 +310,15 @@
       return {
         mdiCandle: mdiCandle,
         mdiWashingMachine: mdiWashingMachine,
-        mdiSpa: mdiSpa
+        mdiSpa: mdiSpa,
+        productList: []
       }
+    },
+    created() {
+      // Reorganise the product list into a single array
+      Object.keys(this.products).forEach((key) => {
+        this.products[key].map((product) => this.productList.push(product));
+      });
     },
     components: {
       PageLayout, ContactBtn

@@ -7,7 +7,7 @@
         <v-layout fill-height column class="pa-10">
             <h2 class="display-1 mb-10">Contact us for a quote</h2>
 
-            <contact-form :selected-product="selectedProduct"/>
+            <contact-form :selected-product="selectedProduct" :form-select-input-items = "formSelectInputItems"/>
         </v-layout>
     </v-navigation-drawer>
 </template>
@@ -23,6 +23,10 @@
       selectedProduct: {
         type: Object,
         default: () => {}
+      },
+      formSelectInputItems: {
+        type: Array,
+        default: []
       }
     },
     data() {

@@ -1,6 +1,6 @@
 <template>
     <v-form ref="form" v-model="valid" lazy-validation @submit.prevent="save">
-        <v-select v-model="product" :items="products" item-text="title" chips
+        <v-select v-model="product" :items="formSelectInputItems" item-text="title" chips
                   label="Categories" multiple v-if="!hideCategorySelection"
                   persistent-hint hint="Select more for group inquiry">
         </v-select>
@@ -26,7 +26,7 @@
             Something went wrong. Please try again
         </v-alert>
 
-        <contact-btn text="Submit" :disabled="!valid" @click="save" :loading="isLoading"/>
+        <contact-btn text="Get in touch" :disabled="!valid" @click="save" :loading="isLoading"/>
     </v-form>
 </template>
 
@@ -45,6 +45,10 @@
       hideCategorySelection: {
         type: Boolean,
         default: false
+      },
+      formSelectInputItems: {
+        type: Array,
+        default: []
       }
     },
     data() {

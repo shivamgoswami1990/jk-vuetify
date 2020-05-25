@@ -2,7 +2,8 @@
     <page-layout left-bg-col="linear-gradient(to top right, #F5F4FF 20%, #FFFFFF 70%)" right-bg-col="#FFFFFF">
         <template v-slot:bannerContent>
             <div class="products-banner-content">
-                <v-slide-group show-arrows class="products-slide-group">
+                <v-slide-group show-arrows class="products-slide-group"
+                               :prev-icon="mdiChevronLeft" :next-icon="mdiChevronRight">
                     <v-slide-item v-for="(product, index) in productList" :key="index"
                                   :style="{width: containerWidth - 24 + 'px'}">
                         <div class="d-flex products-flex-row">
@@ -40,43 +41,46 @@
         </template>
 
         <!-- Default slot content below -->
-        <quote-drawer v-if="showDrawer" :selected-product="selectedProduct" @showDrawer="transitionend"/>
+        <quote-drawer v-if="showDrawer" :selected-product="selectedProduct" :form-select-input-items="productList"
+                      @showDrawer="transitionend"/>
 
         <v-container class="all-products-section mt-5">
             <a>Products</a>
 
-            <div class="d-flex mobile-max-width justify-space-between">
-                <div>
-                    <h2 class="display-2 my-5">All products</h2>
+            <div v-for="(keyName, index1) in Object.keys(products)" :key="index1">
+                <div class="d-flex mobile-max-width justify-space-between">
+                    <div>
+                        <h2 class="display-2 my-5">{{keyName}}</h2>
+                    </div>
+
+                    <contact-btn text="Get quote" outlined @click="showDrawerWithSelectedCategory(products[keyName][0])"/>
                 </div>
 
-                <contact-btn text="Get quote" outlined @click="showDrawerWithSelectedCategory(productList[0])"/>
+                <v-row no-gutters class="my-5">
+                    <v-col md="4" lg="4" cols="12" class="mb-10"
+                           :class="$vuetify.breakpoint.smAndUp ? 'pr-10' : ''"
+                           v-for="(product, index2) in products[keyName]" :key="index2">
+                        <v-hover v-slot:default="{ hover }">
+                            <v-card class="pa-0" :raised="!hover" height="100%">
+                                <v-img :src="product.imagePath2 ? require('@/assets/Products/' + product.imagePath2) : 'https://via.placeholder.com/400'"
+                                       class="align-end justify-end" height="200">
+                                </v-img>
+
+                                <v-card-title class="font-weight-bold px-5">{{product.title}}</v-card-title>
+                                <v-card-text class="px-5 text-justify card-content">
+                                    {{product.content}}
+                                    <a class="px-5" @click="setAndScrollToTop(product.id)">
+                                        View more ...
+                                    </a>
+                                </v-card-text>
+                                <v-card-actions class="pa-0 action-btn-container">
+                                    <a @click="showDrawerWithSelectedCategory(product)">Get quote</a>
+                                </v-card-actions>
+                            </v-card>
+                        </v-hover>
+                    </v-col>
+                </v-row>
             </div>
-
-            <v-row no-gutters class="my-5">
-                <v-col md="4" lg="4" cols="12" class="mb-10"
-                       :class="$vuetify.breakpoint.smAndUp ? 'pr-10' : ''"
-                       v-for="(product, index) in productList" :key="index">
-                    <v-hover v-slot:default="{ hover }">
-                        <v-card class="pa-0" :raised="!hover" height="100%">
-                            <v-img :src="product.imagePath2 ? require('@/assets/Products/' + product.imagePath2) : 'https://via.placeholder.com/400'"
-                                   class="align-end justify-end" height="200">
-                            </v-img>
-
-                            <v-card-title class="font-weight-bold px-5">{{product.title}}</v-card-title>
-                            <v-card-text class="px-5 text-justify card-content">
-                                {{product.content}}
-                                <a class="px-5" @click="setAndScrollToTop(product.id)">
-                                    View more ...
-                                </a>
-                            </v-card-text>
-                            <v-card-actions class="pa-0 action-btn-container">
-                                <a @click="showDrawerWithSelectedCategory(product)">Get quote</a>
-                            </v-card-actions>
-                        </v-card>
-                    </v-hover>
-                </v-col>
-            </v-row>
         </v-container>
     </page-layout>
 </template>
@@ -101,8 +105,8 @@
                 width: 35px;
                 height: 70px;
                 z-index: 10;
-                i {
-                    color: #F50E02;
+                span.v-icon {
+                    color: #F50E02 !important;
                 }
 
                 &:hover {
@@ -312,6 +316,7 @@
   import PageLayout from '@/components/PageLayout.vue';
   import ContactBtn from '@/components/ContactBtn.vue';
   import QuoteDrawer from '@/components/QuoteDrawer.vue';
+  import { mdiChevronLeft, mdiChevronRight } from '@mdi/js'
 
   export default {
     metaInfo: {
@@ -327,9 +332,12 @@
     },
     data() {
       return {
+        mdiChevronLeft: mdiChevronLeft,
+        mdiChevronRight: mdiChevronRight,
         screenHeight: null,
         containerWidth: null,
         productList: [],
+        sequentialProductList: [],
         showDrawer: false,
         selectedProduct: null
       }
@@ -348,13 +356,17 @@
       this.containerWidth = document.getElementsByClassName("foreground-layer")[0].clientWidth;
     },
     created() {
+      // Reorganise the product list into a single array
+      Object.keys(this.products).forEach((key) => {
+        this.products[key].map((product) => this.sequentialProductList.push(product));
+      });
+
       this.sortProductListById(this.$route.params.id);
     },
     methods: {
       sortProductListById(currentId) {
         if (currentId !== undefined && currentId !== null) {
-          let unSortedList = [];
-          Object.assign(unSortedList, this.products);
+          let unSortedList = this.sequentialProductList;
           this.productList = [];
           for (let i = 0; i < unSortedList.length; i++) {
             if (parseInt(unSortedList[i].id) === parseInt(currentId)) {
@@ -365,7 +377,7 @@
             }
           }
         } else {
-          this.productList = this.products;
+          this.productList = this.sequentialProductList;
         }
       },
       setAndScrollToTop(currentId) {

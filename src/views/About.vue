@@ -6,15 +6,29 @@
                     <a class="my-5">Family run business</a>
                     <h1 class="display-3 font-weight-bold my-5">About us</h1>
                     <p class="my-5">
-                        We are the finest firm manufacturing and supplying a spellbinding series of Fragrances and Oils.
+                        Since its establishment in 1989, we at J.K Aromatics & Perfumers are the
+                        finest firm sincerely involved in manufacturing and supplying a spellbind
+                        series of Fragrances and  Flavors.
+
+                        <br><br>
+
+                        This is a second generation family business being run under the constant supervision
+                        of our founder & mentor <b>Mr. Subhash Chand Gupta (Chairman)</b>.
+
+                        <br><br>
+
+                        We create Fragrances without making compromises on standard and attributes
+                        of our product line, ensuring profitable growth and great return for our clients.
+                        We believe that good quality is the only way out to create long- standing sustainable
+                        value for our clients. We have discovered that trust is notched up only over a period
+                        of time by constantly delivering on our promises.
+
                     </p>
                 </div>
                 <div>
                     <img :src="require('@/assets/shape-1.svg')" class="shape-1"/>
 
                     <v-layout fill-height justify-center column class="pa-10">
-                        <h2 class="display-1 mb-10">Get in touch</h2>
-
                         <contact-form hide-category-selection/>
                     </v-layout>
                 </div>
