@@ -7,18 +7,20 @@
                     <v-slide-item v-for="(product, index) in productList" :key="index"
                                   :style="{width: containerWidth - 24 + 'px'}">
                         <div class="d-flex products-flex-row">
-                            <v-card color="transparent" elevation="0" tile
+                            <v-card color="transparent" elevation="0" tile class="content-container"
                                     :width="$vuetify.breakpoint.smAndUp ? containerWidth/2 : containerWidth - 24">
-                                <a class="my-5">Best sellers</a>
+                                <a class="mt-5">Best sellers</a>
                                 <h1 class="display-3 font-weight-bold"
                                     :class="$vuetify.breakpoint.smAndUp ? 'my-5' : 'mb-5'">
                                     {{product.title}}
                                 </h1>
                                 <p v-html="product.content"/>
 
-                                <contact-btn text="Get quote" @click="showDrawerWithSelectedCategory(product)"/>
-                                <contact-btn :background-color="false" text="All products" class="ml-5"
-                                             @click="scrollToAllProductsSection"/>
+                                <div>
+                                    <contact-btn text="Get quote" @click="showDrawerWithSelectedCategory(product)"/>
+                                    <contact-btn :background-color="false" text="All products" class="ml-5"
+                                                 @click="scrollToAllProductsSection"/>
+                                </div>
                             </v-card>
 
                             <v-card color="transparent" elevation="0" tile class="product-img-container"
@@ -120,8 +122,8 @@
 
             .v-slide-group__prev {
                 right: 50%;
-                bottom: -30px;
-                transform: translateX(50%);
+                top: calc(92% - 100px);
+                transform: translateX(0%);
                 border-top-left-radius: 50%;
                 border-bottom-left-radius: 50%;
                 border-top-right-radius: 10px;
@@ -136,8 +138,8 @@
 
             .v-slide-group__next {
                 right: calc(50% - 55px);
-                bottom: -15px;
-                transform: translateX(50%);
+                top: calc(92% - 110px);
+                transform: translateX(0%);
                 border-top-left-radius: 10px;
                 border-bottom-left-radius: 10px;
                 border-top-right-radius: 50%;
@@ -148,6 +150,12 @@
                     top: calc(15% + 25px);
                     transform: unset;
                 }
+            }
+
+            .content-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
             }
 
             .product-img-container {
@@ -218,7 +226,7 @@
             }
 
             p {
-                max-width: 60%;
+                max-width: 70%;
                 min-width: 350px;
                 text-align: justify;
 
