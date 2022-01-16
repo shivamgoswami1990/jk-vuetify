@@ -25,7 +25,7 @@
 
                             <p class="text-justify py-5 body-2" :class="$vuetify.breakpoint.smAndUp ? 'pl-10' : 'pt-0'">
                                 Ours is the finest firm manufacturing and supplying a spellbinding series of
-                                Fragrances and Oils nationally since 1989.
+                                Fragrances and Oils since 1989.
                             </p>
                         </v-col>
 
@@ -36,8 +36,8 @@
                                 <div class="contactus-item">
                                     <v-icon color="primary">{{mdiMapMarker}}</v-icon>
                                     <p class="body-2">
-                                        No. 2187/13, Beri Market, Gali Hinga Beg, Tilak Bazar,
-                                        Delhi-110006, India
+                                        E-148, Sector A-7, Part-1, Trans Delhi Signature City (Formerly Tronica City), Loni,
+                                        UP-201102, India
                                     </p>
                                 </div>
 

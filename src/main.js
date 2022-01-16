@@ -8,8 +8,8 @@ Vue.prototype.products = {
     {
       "id": 15,
       "title": "Personal Care",
-      "imagePath1": "",
-      "imagePath2": "",
+      "imagePath1": "Personal/1.webp",
+      "imagePath2": "Personal/2.webp",
       "content": "Fragrances have been enjoyed for thousands of years and contribute to people’s individuality, " +
         "self-esteem and personal hygiene. Consumer research indicates that fragrance is one of the key factors" +
         " that affect people’s preference for cosmetic and personal care products. There are hundreds of fragrances" +
@@ -27,28 +27,10 @@ Vue.prototype.products = {
         "</ul>"
     },
     {
-      "id": 16,
-      "title": "Fabric Care",
-      "imagePath1": "",
-      "imagePath2": "",
-      "content": "Fabric Cleaning Products of today have evolved from just cleaning products to Fabric Care " +
-        "Products and hence prolonging the life of the fabric. The freshness is the key element that's " +
-        "associated with the fragrances of laundry products.Fragrance for Laundry Products must be substantive" +
-        " from Pre-Wash  to Post-Wash. Our fragrances are designed so as to withstand the harsh manufacturing" +
-        " conditions and then to impart the freshness during the wash cycle and retain it till the fabric is worn and beyond." +
-        "<br>" +
-        "Fragrance is used as an ingredient in many fabric care products such as: <br> <ul>" +
-        "<li>Detergent powder</li>" +
-        "<li>Detergent Liquids</li>" +
-        "<li>Detergent Cake</li>" +
-        "<li>Fabric Softeners</li>" +
-        "</ul>"
-    },
-    {
       "id": 17,
       "title": "Household products",
-      "imagePath1": "",
-      "imagePath2": "",
+      "imagePath1": "Household/1.webp",
+      "imagePath2": "Household/2.webp",
       "content": "Purpose of Household Products Fragrance is not just to Mask the foul odour but " +
         "also to enhance the experience of cleaning and product performance. " +
         "The purpose is to enrich the experience of daily chores by converting them into pleasurable activities. " +
@@ -64,21 +46,6 @@ Vue.prototype.products = {
         "<li>Toilet Cleaner</li>" +
         "<li>Dish washing detergent / liquid / bars</li>" +
         "</ul>"
-    },
-    {
-      "id": 18,
-      "title": "Fine Fragrance & Aerosol",
-      "imagePath1": "",
-      "imagePath2": "",
-      "content": "Fine Fragrances are the signature of an individual which he/she imprints on the mind of the" +
-        " person he/she comes in contact with." +
-        "Perfume is the mood which one wears for the day, how he/she feels emotionally on that particular day." +
-        " It evokes the Emotions which have been an integral part of our heritage." +
-        "At J.K Aromatics & Perfumers we believe that the art of designing a signature fragrance is like creating" +
-        " an aromatic symphony which not only calls for creative perception but also requires most advanced" +
-        " technology tools for capturing the most bewitching of aromas ever inspired by nature." +
-        "It's our continuous Quest to create Fragrances which are Newer and more Sophisticated," +
-        " more Exotic and Unique than the other."
     },
     {
       "id": 1,
@@ -200,8 +167,8 @@ Vue.prototype.products = {
     {
       "id": 9,
       "title": "Candle fragrances",
-      "imagePath1": "",
-      "imagePath2": "",
+      "imagePath1": "Candle/1.webp",
+      "imagePath2": "Candle/2.webp",
       "content": "Candle Fragrances are no more only used for lighting-up your home or saying prayers, but to create" +
         " an ambience to warm your spirit and engulf you in aromatic treat. We create tailor-made fragrances for candles " +
         "as per its design or color to tranquilize you and give therapeutic experience. Whether you are looking for an" +
@@ -214,8 +181,8 @@ Vue.prototype.products = {
     {
       "id": 10,
       "title": "Cooler Perfume Extra",
-      "imagePath1": "",
-      "imagePath2": "",
+      "imagePath1": "CoolerExtra/1.webp",
+      "imagePath2": "CoolerExtra/1.webp",
       "content": "With the inclusion of pioneering machines in all processes, we are indulged in presenting a broad" +
         " compilation of CoolerPerfume Extra. The products provided by us are highly required for their numerous packing" +
         " options and soothing smell. These products are inspected under the direction of knowledgeable personnel against" +
@@ -229,8 +196,8 @@ Vue.prototype.products = {
     {
       "id": 11,
       "title": "Appu Cooler Perfume",
-      "imagePath1": "",
-      "imagePath2": "",
+      "imagePath1": "AppuCooler/1.webp",
+      "imagePath2": "AppuCooler/1.webp",
       "content": "We are prominently involved in presenting a comprehensive plethora of Appu Cooler Perfume. The " +
         "presented gamut is made up employing pristine-grade inputs and highly advances technology in tandem with the" +
         " guidelines of quality. In addition to this, the presented collection is examined on numerous merits to preserve" +
@@ -244,8 +211,8 @@ Vue.prototype.products = {
     {
       "id": 12,
       "title": "Roll On Fragrances",
-      "imagePath1": "",
-      "imagePath2": "",
+      "imagePath1": "RollOn/2.webp",
+      "imagePath2": "RollOn/1.webp",
       "content": "Keeping in pace with time, we successfully offer best range of Roll On Fragrances in the market. " +
         "The mentioned range is developed using modern techniques and natural ingredients in complete compliance with" +
         " the market laid standards and norms. The offered item is accessible in various forms and stipulation to meet" +
