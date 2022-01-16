@@ -38,9 +38,9 @@
       <!-- App bar -->
 
       <!-- Router content -->
-      <v-content class="pt-0">
+      <v-main class="pt-0">
         <router-view/>
-      </v-content>
+      </v-main>
       <!-- Router content -->
 
       <!-- Footer -->
