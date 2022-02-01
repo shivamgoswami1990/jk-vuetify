@@ -44,16 +44,16 @@
                                 <div class="contactus-item">
                                     <v-icon color="primary">{{mdiPhone}}</v-icon>
                                     <p class="body-2">
-                                        +91-9868174388
+                                        Abhishek Gupta +91-9868174388
                                     </p>
                                 </div>
 
-                                <div class="contactus-item">
-                                    <v-icon color="primary">{{mdiEmail}}</v-icon>
-                                    <p class="body-2">
-                                        contact@jkaromaticsandperfumers.com
-                                    </p>
-                                </div>
+<!--                                <div class="contactus-item">-->
+<!--                                    <v-icon color="primary">{{mdiEmail}}</v-icon>-->
+<!--                                    <p class="body-2">-->
+<!--                                        contact@jkaromaticsandperfumers.com-->
+<!--                                    </p>-->
+<!--                                </div>-->
                             </div>
                         </v-col>
 

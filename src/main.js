@@ -27,7 +27,7 @@ Vue.prototype.products = {
         "</ul>"
     },
     {
-      "id": 17,
+      "id": 16,
       "title": "Household products",
       "imagePath1": "Household/1.webp",
       "imagePath2": "Household/2.webp",
