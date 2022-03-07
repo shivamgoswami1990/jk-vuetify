@@ -88,21 +88,18 @@
     methods: {
       save() {
         let vm = this;
-        vm.name = '';
-        vm.email = '';
-        vm.message = '';
         vm.isLoading = false;
 
         // Show the message on a timeout
         vm.showSuccessMessage = false;
         if (this.$refs.form.validate()) {
           // Submit form on valid
-          const data = { contact: {
-              "name": this.name,
-              "email": this.email,
-              "message": this.message,
-            }};
-          let vm = this;
+          const data = {
+              "name": vm.name,
+              "category": vm.selectedProduct ? vm.selectedProduct.title : 'General',
+              "email": vm.email,
+              "message": vm.message,
+            };
           vm.isLoading = true;
           fetch('https://jkaromaticsandperfumers.com:3000/send_email_for_customer_site', {
             method: 'POST', // or 'PUT'
@@ -120,12 +117,10 @@
 
                   // Show the message on a timeout
                   vm.showSuccessMessage = true;
-                  setTimeout(function () {
-                    vm.showSuccessMessage = false;
-                    vm.name = '';
-                    vm.email = '';
-                    vm.message = '';
-                  }, 4000);
+                  vm.showSuccessMessage = false;
+                  vm.name = '';
+                  vm.email = '';
+                  vm.message = '';
                 }
               }
             })
