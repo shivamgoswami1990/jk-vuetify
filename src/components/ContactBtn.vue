@@ -1,7 +1,7 @@
 <template>
     <v-btn color="primary" rounded height="50" width="150" :text="!backgroundColor" :outlined="outlined"
            :disabled="disabled" :loading="loading"
-           class="font-weight-bold text-capitalize my-5" @click="btnClicked">
+           class="font-weight-bold text-capitalize" @click="btnClicked">
         {{text}}
     </v-btn>
 </template>

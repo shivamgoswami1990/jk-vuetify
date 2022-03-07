@@ -48,12 +48,12 @@
                                     </p>
                                 </div>
 
-<!--                                <div class="contactus-item">-->
-<!--                                    <v-icon color="primary">{{mdiEmail}}</v-icon>-->
-<!--                                    <p class="body-2">-->
-<!--                                        contact@jkaromaticsandperfumers.com-->
-<!--                                    </p>-->
-<!--                                </div>-->
+                                <div class="contactus-item">
+                                    <v-icon color="primary">{{mdiEmail}}</v-icon>
+                                    <p class="body-2">
+                                        info@jkaromatics.com
+                                    </p>
+                                </div>
                             </div>
                         </v-col>
 
@@ -68,15 +68,19 @@
                                     </li>
                                 </ul>
                             </v-layout>
+
+                            <v-icon class="mt-4" color="primary" @click="openInstagramPage">
+                              {{mdiInstagram}}
+                            </v-icon>
+                            <v-icon class="mt-4 ml-6" color="primary" @click="openTwitterPage">
+                              {{mdiTwitter}}
+                            </v-icon>
                         </v-col>
                     </v-row>
                 </v-container>
 
                 <p class="text-center body-2 font-weight-bold mt-5">
                     © Copyright 2020 JK Aromatics and Perfumers. All rights reserved
-                    <br>
-                    Made with ❣ by
-                    <a href="https://shivamgoswami.live" target="_blank" rel="noopener">Shivam Goswami</a>
                 </p>
             </v-layout>
         </div>
@@ -156,16 +160,24 @@
 
 <script>
   // @ is an alias to /src
-  import { mdiMapMarker } from '@mdi/js'
-  import { mdiPhone } from '@mdi/js';
-  import { mdiEmail } from '@mdi/js';
+  import { mdiMapMarker, mdiPhone, mdiEmail, mdiInstagram, mdiTwitter } from '@mdi/js'
 
   export default {
     data() {
       return {
         mdiMapMarker: mdiMapMarker,
         mdiPhone: mdiPhone,
-        mdiEmail: mdiEmail
+        mdiEmail: mdiEmail,
+        mdiInstagram: mdiInstagram,
+        mdiTwitter: mdiTwitter
+      }
+    },
+    methods: {
+      openInstagramPage() {
+        window.open('https://instagram.com/j.k_appu_1989?utm_medium=copy_link', '_blank').focus();
+      },
+      openTwitterPage() {
+        window.open('https://twitter.com/AromaticsJ?t=2UjCJIjUrJbBmcTjVNHsmw&s=08', '_blank').focus();
       }
     }
   }

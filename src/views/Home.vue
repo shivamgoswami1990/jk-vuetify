@@ -131,6 +131,11 @@
                                 <v-img :src="require('@/assets/section-2.webp')" contain height="420" max-width="450px"/>
                             </v-col>
                         </v-row>
+
+                        <v-row no-gutters class="mt-10 d-flex flex-column align-center justify-start">
+                          <h2 class="display-2">Associated with</h2>
+                          <v-img :src="require('@/assets/section-3.jpeg')" contain max-width="450px"/>
+                        </v-row>
                     </div>
                 </v-container>
             </div>

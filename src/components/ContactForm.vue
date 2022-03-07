@@ -26,7 +26,11 @@
             Something went wrong. Please try again
         </v-alert>
 
-        <contact-btn text="Get in touch" :disabled="!valid" @click="save" :loading="isLoading"/>
+        <contact-btn text="Get in touch"
+                     :disabled="!valid || !(name && email && message)"
+                     @click="save"
+                     :loading="isLoading
+        "/>
     </v-form>
 </template>
 
@@ -48,7 +52,7 @@
       },
       formSelectInputItems: {
         type: Array,
-        default: []
+        default: () => []
       }
     },
     data() {
@@ -90,51 +94,51 @@
         vm.isLoading = false;
 
         // Show the message on a timeout
-        vm.showSuccessMessage = true;
-        // if (this.$refs.form.validate()) {
-        //   // Submit form on valid
-        //   const data = { contact: {
-        //       "name": this.name,
-        //       "email": this.email,
-        //       "message": this.message,
-        //     }};
-        //   let vm = this;
-        //   vm.isLoading = true;
-        //   fetch(process.env.VUE_APP_REST_URL + '/contacts', {
-        //     method: 'POST', // or 'PUT'
-        //     headers: {
-        //       'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(data),
-        //   })
-        //     .then((response) => response.json())
-        //     .then((data) => {
-        //       // On success, clear form & display success message
-        //       if ('response_code' in data) {
-        //         if (data.response_code === '202') {
-        //           vm.name = '';
-        //           vm.email = '';
-        //           vm.message = '';
-        //           vm.isLoading = false;
-        //
-        //           // Show the message on a timeout
-        //           vm.showSuccessMessage = true;
-        //           setTimeout(function () {
-        //             vm.showSuccessMessage = false;
-        //           }, 4000);
-        //         }
-        //       }
-        //     })
-        //     .catch((error) => {
-        //       vm.isLoading = false;
-        //       console.log(error);
-        //       // Show the message on a timeout
-        //       vm.showErrorMessage = true;
-        //       setTimeout(function () {
-        //         vm.showErrorMessage = false;
-        //       }, 4000);
-        //     });
-        // }
+        vm.showSuccessMessage = false;
+        if (this.$refs.form.validate()) {
+          // Submit form on valid
+          const data = { contact: {
+              "name": this.name,
+              "email": this.email,
+              "message": this.message,
+            }};
+          let vm = this;
+          vm.isLoading = true;
+          fetch('https://jkaromaticsandperfumers.com:3000/send_email_for_customer_site', {
+            method: 'POST', // or 'PUT'
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              // On success, clear form & display success message
+              if ('response_code' in data) {
+                if (data.response_code === '202') {
+                  vm.isLoading = false;
+
+                  // Show the message on a timeout
+                  vm.showSuccessMessage = true;
+                  setTimeout(function () {
+                    vm.showSuccessMessage = false;
+                    vm.name = '';
+                    vm.email = '';
+                    vm.message = '';
+                  }, 4000);
+                }
+              }
+            })
+            .catch((error) => {
+              vm.isLoading = false;
+              console.log(error);
+              // Show the message on a timeout
+              vm.showErrorMessage = true;
+              setTimeout(function () {
+                vm.showErrorMessage = false;
+              }, 4000);
+            });
+        }
       },
     }
   }

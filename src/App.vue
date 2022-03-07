@@ -5,8 +5,7 @@
       <nav-drawer :items="navItems" v-if="showDrawer" @showDrawer="transitionend" />
 
       <!-- App bar -->
-      <v-app-bar app color="#FFFFFF" tile height="70px" elevation="0" fixed>
-        <v-container class="d-flex align-center">
+      <v-app-bar app color="#FFFFFF" tile height="70px" elevation="0" fixed prominent>
           <v-app-bar-nav-icon @click="showDrawer = true" v-if="$vuetify.breakpoint.mdAndDown">
             <slot>
               <v-icon size="32" color="primary">{{mdiText}}</v-icon>
@@ -20,12 +19,21 @@
           <h3 v-if="$vuetify.breakpoint.smAndUp">JK Aromatics And Perfumers</h3>
 
           <v-spacer></v-spacer>
-          <div class="hidden-sm-and-down mr-2">
-            <a v-for="(item, index) in navItems" :key="index" class="black--text font-weight-bold mx-5 nav-link"
-               v-if="item.isMainNavItem" @click="$router.push({ name: item.linkTo, params: { id: item.linkParams }})">
-              {{item.title}}
-            </a>
-          </div>
+<!--          <a @click="$router.push({ name: 'home'})">-->
+<!--            <v-avatar width="70px" tile>-->
+<!--              <v-img :src="require('@/assets/logo.webp')" contain></v-img>-->
+<!--            </v-avatar>-->
+<!--          </a>-->
+<!--          <h6 v-if="$vuetify.breakpoint.smAndUp">-->
+<!--            <span class="primary&#45;&#45;text caption">Sister concern</span> <br/>-->
+<!--            Mazic Fragrances-->
+<!--          </h6>-->
+<!--          <div class="hidden-sm-and-down mr-2">-->
+<!--            <a v-for="(item, index) in navItems" :key="index" class="black&#45;&#45;text font-weight-bold mx-5 nav-link"-->
+<!--               v-if="item.isMainNavItem" @click="$router.push({ name: item.linkTo, params: { id: item.linkParams }})">-->
+<!--              {{item.title}}-->
+<!--            </a>-->
+<!--          </div>-->
 
           <contact-btn text="Get in touch" @click="$router.push(
             { name: 'about',
@@ -33,7 +41,23 @@
                 navigateToFormOnMobile: true
               }
             })"/>
-        </v-container>
+
+        <template v-slot:extension>
+          <v-tabs centered background-color="#FFFFFF">
+            <v-tab :to="{ name: 'home'}" exact-path>
+              Home
+            </v-tab>
+            <v-tab :to="{ name: 'products', params: { id: 1 }}" exact-path>
+              Products
+            </v-tab>
+            <v-tab :to="{ name: 'about'}">
+              About
+            </v-tab>
+            <v-tab @click="goToFooter">
+              Sister concern
+            </v-tab>
+          </v-tabs>
+        </template>
       </v-app-bar>
       <!-- App bar -->
 
@@ -106,6 +130,13 @@
     methods: {
       transitionend() {
         this.showDrawer = false;
+      },
+      goToFooter() {
+        this.$vuetify.goTo(document.getElementsByClassName("footer-with-nav")[0], {
+          duration: 300,
+          offset: 0,
+          easing: 'easeInOutCubic',
+        });
       }
     }
   }
